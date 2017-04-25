@@ -17,7 +17,7 @@
 #' gx.createProject("example-project","example description")
 #'
 gx.createProject <- function(name, description="New platform project") {
-    con <- getConnection()
+    con <- gx.getConnection()
     gx.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description))
 }
 
@@ -33,6 +33,7 @@ gx.createProject <- function(name, description="New platform project") {
 #' gx.delete("example-folder","example-name")
 #'
 gx.delete <- function(folder, name) {
+    gx.getConnection()
     params <- list("service" = "access.service",
                    "command" = "26",
                    "dc" = folder,
@@ -53,6 +54,7 @@ gx.delete <- function(folder, name) {
 #' gx.ls(path="data/Projects", extended=T)
 #'
 gx.ls <- function(path, extended=F) {
+    gx.getConnection()
     biouml.ls(path, extended)
 }
 
@@ -72,6 +74,7 @@ gx.ls <- function(path, extended=F) {
 #' gx.analysis()
 #'
 gx.analysis <- function(analysisName, parameters=list(), wait=T, verbose=T) {
+    gx.getConnection()
     biouml.analysis(analysisName, parameters, wait, verbose)
 }
 
@@ -86,6 +89,7 @@ gx.analysis <- function(analysisName, parameters=list(), wait=T, verbose=T) {
 #' gx.analysis.list()
 #'
 gx.analysis.list <- function() {
+    gx.getConnection()
     biouml.analysis.list()
 }
 
@@ -100,6 +104,7 @@ gx.analysis.list <- function() {
 #' gx.analysis.parameters()
 #'
 gx.analysis.parameters <- function(analysisName) {
+    gx.getConnection()
     biouml.analysis.parameters(analysisName)
 }
 
@@ -114,6 +119,7 @@ gx.analysis.parameters <- function(analysisName) {
 #' gx.workflow("path/to/example/workflow", list("param1"="value1"))
 #'
 gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
+    gx.getConnection()
     biouml.workflow(path, parameters, wait, verbose)
 }
 
@@ -128,6 +134,7 @@ gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
 #' gx.export()
 #'
 gx.export <- function(path, exporter="Tab-separated text (*.txt)", exporter.params=list(), target.file="genexplain.out") {
+    gx.getConnection()
     biouml.export(path, exporter, exporter.params, target.file)
 }
 
@@ -142,6 +149,7 @@ gx.export <- function(path, exporter="Tab-separated text (*.txt)", exporter.para
 #' gx.exporters()
 #'
 gx.exporters <- function() {
+    gx.getConnection()
     biouml.exporters()
 }
 
@@ -156,6 +164,7 @@ gx.exporters <- function() {
 #' gx.exporter.parameters("example-path","example-exporter")
 #'
 gx.export.parameters <- function(path, exporter) {
+    gx.getConnection()
     biouml.exporters.parameters(path, exporter)
 }
 
@@ -170,6 +179,7 @@ gx.export.parameters <- function(path, exporter) {
 #' gx.get("example/table/path")
 #'
 gx.get <- function(path) {
+    gx.getConnection()
     biouml.get(path)
 }
 
@@ -184,6 +194,7 @@ gx.get <- function(path) {
 #' gx.put("example/destination/path",data)
 #'
 gx.put <- function(path, value) {
+    gx.getConnection()
     biouml.put(path, value)
 }
 
@@ -198,6 +209,7 @@ gx.put <- function(path, value) {
 #' gx.import("example/file/path", "example/platform/path", "example-importer", list())
 #'
 gx.import <- function(file, parentPath, importer, importer.params=list()) {
+    gx.getConnection()
     biouml.import(file, parentPath, importer, importer.params)
 }
 
@@ -212,6 +224,7 @@ gx.import <- function(file, parentPath, importer, importer.params=list()) {
 #' gx.importers()
 #'
 gx.importers <- function() {
+    gx.getConnection()
     biouml.importers()
 }
 
@@ -226,6 +239,7 @@ gx.importers <- function() {
 #' gx.import.parameters("example-path","example-importer")
 #'
 gx.import.parameters <- function(path, importer) {
+    gx.getConnection()
     biouml.import.parameters(path, importer)
 }
 
@@ -270,10 +284,12 @@ gx.logout <- function() {
 #' gx.job.info("example-id")
 #'
 gx.job.info <- function(jobID) {
+    gx.getConnection()
     biouml.job.info(jobID)
 }
 
 gx.job.wait <- function(jobID, verbose=T) {
+    gx.getConnection()
     biouml.job.wait(jobID, verbose)
 }
 
@@ -291,17 +307,17 @@ gx.getConnection <- function() {
     cnx
 }
 
-gx.reconnect <- function(con) {
-    header <- basicHeaderGatherer()
+gx.reconnect <- function(connection) {
+    header  <- basicHeaderGatherer()
     content <- basicTextGatherer()
-    opts <- curlOptions(headerfunction=header$update, writefunction=content$update)
-    postForm(paste(con$url, "/web/login", sep=''), username=con$user, password=con$pass, .opts=opts)
+    opts    <- curlOptions(headerfunction=header$update, writefunction=content$update)
+    postForm(paste(connection$url, "/web/login", sep=''), username=connection$user, password=connection$pass, .opts=opts)
     contentJson <- fromJSON(content$value())
     if (contentJson$type != 0) 
         stop(contentJson$message);
-    con$sessionId <- sub('JSESSIONID=([^;]+).*', '\\1', header$value()['Set-Cookie'])
-    options(biouml_connection=con)
-    con
+    connection$sessionId <- sub('JSESSIONID=([^;]+).*', '\\1', header$value()['Set-Cookie'])
+    options(biouml_connection=connection)
+    connection
 }
 
 gx.queryJSON <- function(serverPath, params=list(), simplify=T, reconnect=T) {
