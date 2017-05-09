@@ -9,12 +9,8 @@ gx.importers()
 \description{
 Wraps rbiouml function biouml.importers
 }
-\examples{
-gx.importers()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.importers}}
+\code{\link[rbiouml]{biouml.importers}}
 }
 \keyword{importer,}
 \keyword{list}

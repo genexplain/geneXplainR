@@ -9,12 +9,8 @@ gx.analysis.parameters(analysisName)
 \description{
 Wraps rbiouml function biouml.analysis.parameters
 }
-\examples{
-gx.analysis.parameters()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.analysis.parameters}}
+\code{\link[rbiouml]{biouml.analysis.parameters}}
 }
 \keyword{analysis,}
 \keyword{parameters}

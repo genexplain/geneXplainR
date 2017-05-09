@@ -9,12 +9,8 @@ gx.exporters()
 \description{
 Wraps rbiouml function biouml.exporters
 }
-\examples{
-gx.exporters()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.exporters}}
+\code{\link[rbiouml]{biouml.exporters}}
 }
 \keyword{exporter,}
 \keyword{list}

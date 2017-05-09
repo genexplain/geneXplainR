@@ -10,11 +10,7 @@ gx.login(server = "https://platform.genexplain.com", user = "",
 \description{
 Wraps rbiouml function biouml.login
 }
-\examples{
-gx.login("example-server","example-user","example-password")
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.login}}
+\code{\link[rbiouml]{biouml.login}}
 }
 \keyword{login}

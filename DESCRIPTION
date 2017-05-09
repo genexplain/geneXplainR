@@ -4,15 +4,14 @@ Version: 0.3
 Date: 2017-01-01
 Authors@R: person("Philip", "Stegmaier", email = "philip.stegmaier@genexplain.com", role = c("aut", "cre"))
 Description: Access to personal workspace, analysis tools and workflows in the geneXplain platform.
-Depends: R (>= 3.3.3),
-    rbiouml,
-    RJSONIO,
-    RCurl
-License: MIT
+Depends: R (>= 3.3.3)
+Imports: rbiouml
+Suggests: testthat, knitr
+License: MIT + file LICENSE
 Maintainer: Philip Stegmaier <philip.stegmaier@genexplain.com>
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/genexplain/geneXplainR
 VignetteBuilder: knitr
-BugReports: http://github.com/genexplain/geneXplainR
+BugReports: https://github.com/genexplain/geneXplainR
 RoxygenNote: 6.0.1.9000

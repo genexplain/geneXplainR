@@ -9,11 +9,7 @@ gx.put(path, value)
 \description{
 Wraps rbiouml function biouml.put
 }
-\examples{
-gx.put("example/destination/path",data)
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.put}}
+\code{\link[rbiouml]{biouml.put}}
 }
 \keyword{put}

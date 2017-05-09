@@ -9,12 +9,8 @@ gx.job.info(jobID)
 \description{
 Wraps rbiouml function biouml.job.info
 }
-\examples{
-gx.job.info("example-id")
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.job.info}}
+\code{\link[rbiouml]{biouml.job.info}}
 }
 \keyword{info}
 \keyword{job,}

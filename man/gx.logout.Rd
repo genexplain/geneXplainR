@@ -9,11 +9,7 @@ gx.logout()
 \description{
 Wraps rbiouml function biouml.logout
 }
-\examples{
-gx.logout()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.logout}}
+\code{\link[rbiouml]{biouml.logout}}
 }
 \keyword{logout}

@@ -10,11 +10,7 @@ gx.export(path, exporter = "Tab-separated text (*.txt)",
 \description{
 Wraps rbiouml function biouml.export
 }
-\examples{
-gx.export()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.export}}
+\code{\link[rbiouml]{biouml.export}}
 }
 \keyword{export}

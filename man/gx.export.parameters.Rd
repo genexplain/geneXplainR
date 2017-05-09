@@ -7,14 +7,10 @@
 gx.export.parameters(path, exporter)
 }
 \description{
-Wraps rbiouml function biouml.exporter.parameters
-}
-\examples{
-gx.exporter.parameters("example-path","example-exporter")
-
+Wraps rbiouml function biouml.export.parameters
 }
 \seealso{
-\code{\link{rbiouml::biouml.exporter.parameters}}
+\code{\link[rbiouml]{biouml.export.parameters}}
 }
 \keyword{exporter,}
 \keyword{parameters}

@@ -9,12 +9,8 @@ gx.analysis.list()
 \description{
 Wraps rbiouml function biouml.analysis.list
 }
-\examples{
-gx.analysis.list()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.analysis.list}}
+\code{\link[rbiouml]{biouml.analysis.list}}
 }
 \keyword{analysis,}
 \keyword{list}

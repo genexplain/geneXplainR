@@ -14,10 +14,3 @@ gx.createProject(name, description = "New platform project")
 \description{
 Create a new project
 }
-\examples{
-
-# Note that the project name probably requires adaptation
-
-gx.createProject("example-project","example description")
-
-}

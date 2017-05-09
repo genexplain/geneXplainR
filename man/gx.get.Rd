@@ -9,11 +9,7 @@ gx.get(path)
 \description{
 Wraps rbiouml function biouml.get
 }
-\examples{
-gx.get("example/table/path")
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.get}}
+\code{\link[rbiouml]{biouml.get}}
 }
 \keyword{get}

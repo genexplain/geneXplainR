@@ -18,11 +18,7 @@ gx.analysis(analysisName, parameters = list(), wait = T, verbose = T)
 \description{
 Wraps rbiouml function biouml.analysis
 }
-\examples{
-gx.analysis()
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.analysis}}
+\code{\link[rbiouml]{biouml.analysis}}
 }
 \keyword{analysis}

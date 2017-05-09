@@ -14,10 +14,3 @@ gx.delete(folder, name)
 \description{
 Delete a workspace item
 }
-\examples{
-
-# Note that the folder and name probably require adaptation
-
-gx.delete("example-folder","example-name")
-
-}

@@ -14,11 +14,7 @@ gx.ls(path, extended = F)
 \description{
 Wraps rbiouml function biouml.ls
 }
-\examples{
-gx.ls(path="data/Projects", extended=T)
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.ls}}
+\code{\link[rbiouml]{biouml.ls}}
 }
 \keyword{ls}

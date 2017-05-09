@@ -9,12 +9,8 @@ gx.import.parameters(path, importer)
 \description{
 Wraps rbiouml function biouml.import.parameters
 }
-\examples{
-gx.import.parameters("example-path","example-importer")
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.import.parameters}}
+\code{\link[rbiouml]{biouml.import.parameters}}
 }
 \keyword{import,}
 \keyword{parameters}

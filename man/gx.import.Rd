@@ -9,11 +9,7 @@ gx.import(file, parentPath, importer, importer.params = list())
 \description{
 Wraps rbiouml function biouml.import
 }
-\examples{
-gx.import("example/file/path", "example/platform/path", "example-importer", list())
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.import}}
+\code{\link[rbiouml]{biouml.import}}
 }
 \keyword{import}

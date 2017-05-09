@@ -9,11 +9,7 @@ gx.workflow(path, parameters = list(), wait = T, verbose = T)
 \description{
 Wraps rbiouml function biouml.workflow
 }
-\examples{
-gx.workflow("path/to/example/workflow", list("param1"="value1"))
-
-}
 \seealso{
-\code{\link{rbiouml::biouml.workflow}}
+\code{\link[rbiouml]{biouml.workflow}}
 }
 \keyword{workflow}
