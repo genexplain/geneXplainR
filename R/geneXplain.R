@@ -1,12 +1,17 @@
 #############################################################
 # Copyright (c) 2017 geneXplain GmbH, Wolfenbuettel, Germany
 #
+# Author: Philip Stegmaier
+#
 # Please see license that accompanies this software.
 #############################################################
 
 
-.internals <- c("biouml.query", "queryJSON")
-gx.imp <- structure(mapply(function(.internals,i) getFromNamespace(i,"rbiouml"),.internals,.internals),class=c("internal"))
+gx.getInternals <- function() {
+    .internals <- c("biouml.query", "queryJSON")
+    gx.imp <- structure(mapply(function(.internals,i) getFromNamespace(i,"rbiouml"),.internals,.internals),class=c("internal"))
+    gx.imp
+}
 
 
 #' Create a new project
@@ -16,6 +21,7 @@ gx.imp <- structure(mapply(function(.internals,i) getFromNamespace(i,"rbiouml"),
 #' @export
 gx.createProject <- function(name, description="New platform project") {
     con <- gx.getConnection()
+    gx.imp <- gx.getInternals()
     gx.imp$biouml.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description)) }
 
 #' Delete a workspace item
@@ -29,6 +35,7 @@ gx.delete <- function(folder, name) {
                    "command" = "26",
                    "dc" = folder,
                    "de" =  name)
+    gx.imp <- gx.getInternals()
     gx.imp$queryJSON("/web/data", params)
 }
 
