@@ -51,10 +51,12 @@ test.biouml.reconnect <- function(con=NULL) {
 	con
 }
 
+# Initializes connection before a test
 before.test.connection <- function() {
     options(biouml_connection = test.biouml.reconnect())
 }
 
+# Resets argument containers before a test
 clean.after.test <- function() {
     queryArgs     <<- list()
     queryJsonArgs <<- list()

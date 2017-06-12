@@ -24,6 +24,21 @@ gx.createProject <- function(name, description="New platform project") {
     gx.imp <- gx.getInternals()
     gx.imp$biouml.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description)) }
 
+#' Create a folder
+#'
+#' @param path        parent folder in which the new folder is created
+#' @param folderName  name of the new folder 
+#' @export
+gx.createFolder <- function(path, folderName) {
+    gx.getConnection()
+    params <- list("service" = "access.service",
+            "command" = "25",
+            "dc" = path,
+            "de" =  folderName)
+    gx.imp <- gx.getInternals()
+    gx.imp$queryJSON("/web/data", params)
+}
+
 #' Delete a workspace item
 #'
 #' @param folder folder that contains the item

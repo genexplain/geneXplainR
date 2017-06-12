@@ -36,3 +36,4 @@ vignettes/*.pdf
 .settings
 .settings/*
 tthat
+tests/testthat/test.export.file
