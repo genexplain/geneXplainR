@@ -100,6 +100,17 @@ test_that("gx.createProject", {
             clean.after.test()
         })
 
+test_that("gx.createFolder", {
+            before.test.connection()
+            res <- gx.createFolder("test.path", "test.folder")
+            expect_equal(queryJsonArgs$query, "/web/data")
+            expect_equal(queryJsonArgs$params$service, "access.service")
+            expect_equal(queryJsonArgs$params$command, "25")
+            expect_equal(queryJsonArgs$params$dc, "test.path")
+            expect_equal(queryJsonArgs$params$de, "test.folder")
+            clean.after.test()
+        })
+
 test_that("gx.delete", {
             before.test.connection()
             bioumlQueryValue <<- defaultQueryValue

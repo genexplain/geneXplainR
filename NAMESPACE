@@ -3,6 +3,7 @@
 export(gx.analysis)
 export(gx.analysis.list)
 export(gx.analysis.parameters)
+export(gx.createFolder)
 export(gx.createProject)
 export(gx.delete)
 export(gx.export)

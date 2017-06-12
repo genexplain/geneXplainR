@@ -100,6 +100,7 @@ gx.analysis.list <- function() {
 #' 
 #' Wraps rbiouml function biouml.analysis.parameters
 #'
+#' @param analysisName  name of the analysis tool
 #' @keywords analysis, parameters
 #' @seealso \code{\link[rbiouml]{biouml.analysis.parameters}}
 #' @export
