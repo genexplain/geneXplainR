@@ -7,6 +7,13 @@
 gx.login(server = "https://platform.genexplain.com", user = "",
   password = "")
 }
+\arguments{
+\item{server}{server to connect to}
+
+\item{user}{username}
+
+\item{password}{password}
+}
 \description{
 Wraps rbiouml function biouml.login
 }

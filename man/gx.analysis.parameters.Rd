@@ -6,6 +6,9 @@
 \usage{
 gx.analysis.parameters(analysisName)
 }
+\arguments{
+\item{analysisName}{name of the analysis tool}
+}
 \description{
 Wraps rbiouml function biouml.analysis.parameters
 }

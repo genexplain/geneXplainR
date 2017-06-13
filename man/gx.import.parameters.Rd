@@ -6,6 +6,11 @@
 \usage{
 gx.import.parameters(path, importer)
 }
+\arguments{
+\item{path}{path to import to}
+
+\item{importer}{importer whose parameters will be shown}
+}
 \description{
 Wraps rbiouml function biouml.import.parameters
 }

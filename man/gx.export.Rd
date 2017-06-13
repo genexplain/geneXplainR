@@ -7,6 +7,15 @@
 gx.export(path, exporter = "Tab-separated text (*.txt)",
   exporter.params = list(), target.file = "genexplain.out")
 }
+\arguments{
+\item{path}{path to export}
+
+\item{exporter}{exporter to use for export}
+
+\item{exporter.params}{parameters of the exporter}
+
+\item{target.file}{local file to export to}
+}
 \description{
 Wraps rbiouml function biouml.export
 }

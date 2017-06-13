@@ -6,6 +6,11 @@
 \usage{
 gx.put(path, value)
 }
+\arguments{
+\item{path}{platform path of new table}
+
+\item{value}{R object to put into platform}
+}
 \description{
 Wraps rbiouml function biouml.put
 }

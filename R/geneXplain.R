@@ -113,6 +113,10 @@ gx.analysis.parameters <- function(analysisName) {
 #' 
 #' Wraps rbiouml function biouml.workflow
 #'
+#' @param path        platform path to the workflow
+#' @param parameters  workflow parameters
+#' @param wait        set true to wait for task to complete
+#' @param verbose     switch to get more or less progress info
 #' @keywords workflow
 #' @seealso \code{\link[rbiouml]{biouml.workflow}}
 #' @export
@@ -125,6 +129,10 @@ gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
 #' 
 #' Wraps rbiouml function biouml.export
 #'
+#' @param path            path to export
+#' @param exporter        exporter to use for export
+#' @param exporter.params parameters of the exporter
+#' @param target.file     local file to export to
 #' @keywords export
 #' @seealso \code{\link[rbiouml]{biouml.export}}
 #' @export
@@ -149,6 +157,8 @@ gx.exporters <- function() {
 #' 
 #' Wraps rbiouml function biouml.export.parameters
 #'
+#' @param path     path of the object to export
+#' @param exporter exporter to use for the export
 #' @keywords exporter, parameters
 #' @seealso \code{\link[rbiouml]{biouml.export.parameters}}
 #' @export
@@ -161,6 +171,7 @@ gx.export.parameters <- function(path, exporter) {
 #' 
 #' Wraps rbiouml function biouml.get
 #'
+#' @param path  path of object to load into a data.frame
 #' @keywords get
 #' @seealso \code{\link[rbiouml]{biouml.get}}
 #' @export
@@ -173,6 +184,8 @@ gx.get <- function(path) {
 #' 
 #' Wraps rbiouml function biouml.put
 #'
+#' @param path    platform path of new table
+#' @param value   R object to put into platform 
 #' @keywords put
 #' @seealso \code{\link[rbiouml]{biouml.put}}
 #' @export
@@ -185,6 +198,10 @@ gx.put <- function(path, value) {
 #' 
 #' Wraps rbiouml function biouml.import
 #'
+#' @param file            local file to import
+#' @param parentPath      path of folder to import into
+#' @param importer        importer to use
+#' @param importer.params parameters for specified importer
 #' @keywords import
 #' @seealso \code{\link[rbiouml]{biouml.import}}
 #' @export
@@ -209,6 +226,8 @@ gx.importers <- function() {
 #' 
 #' Wraps rbiouml function biouml.import.parameters
 #'
+#' @param path      path to import to
+#' @param importer  importer whose parameters will be shown
 #' @keywords import, parameters
 #' @seealso \code{\link[rbiouml]{biouml.import.parameters}}
 #' @export
@@ -221,6 +240,9 @@ gx.import.parameters <- function(path, importer) {
 #' 
 #' Wraps rbiouml function biouml.login
 #'
+#' @param server   server to connect to
+#' @param user     username
+#' @param password password
 #' @keywords login
 #' @seealso \code{\link[rbiouml]{biouml.login}}
 #' @export
@@ -243,6 +265,7 @@ gx.logout <- function() {
 #' 
 #' Wraps rbiouml function biouml.job.info
 #'
+#' @param jobID  id of the platform task
 #' @keywords job, info
 #' @seealso \code{\link[rbiouml]{biouml.job.info}}
 #' @export
@@ -262,4 +285,3 @@ gx.getConnection <- function() {
         stop("Not signed into platform, please login first using gx.login()")
     cnx
 }
-

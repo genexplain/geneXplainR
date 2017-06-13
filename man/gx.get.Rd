@@ -6,6 +6,9 @@
 \usage{
 gx.get(path)
 }
+\arguments{
+\item{path}{path of object to load into a data.frame}
+}
 \description{
 Wraps rbiouml function biouml.get
 }

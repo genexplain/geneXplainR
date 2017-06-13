@@ -6,6 +6,9 @@
 \usage{
 gx.job.info(jobID)
 }
+\arguments{
+\item{jobID}{id of the platform task}
+}
 \description{
 Wraps rbiouml function biouml.job.info
 }

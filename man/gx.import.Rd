@@ -6,6 +6,15 @@
 \usage{
 gx.import(file, parentPath, importer, importer.params = list())
 }
+\arguments{
+\item{file}{local file to import}
+
+\item{parentPath}{path of folder to import into}
+
+\item{importer}{importer to use}
+
+\item{importer.params}{parameters for specified importer}
+}
 \description{
 Wraps rbiouml function biouml.import
 }

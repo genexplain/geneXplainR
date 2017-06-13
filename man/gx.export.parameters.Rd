@@ -6,6 +6,11 @@
 \usage{
 gx.export.parameters(path, exporter)
 }
+\arguments{
+\item{path}{path of the object to export}
+
+\item{exporter}{exporter to use for the export}
+}
 \description{
 Wraps rbiouml function biouml.export.parameters
 }

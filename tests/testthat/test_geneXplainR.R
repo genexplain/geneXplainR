@@ -1,4 +1,12 @@
 
+#############################################################
+# Copyright (c) 2017 geneXplain GmbH, Wolfenbuettel, Germany
+#
+# Author: Philip Stegmaier
+#
+# Please see license that accompanies this software.
+#############################################################
+
 library(geneXplainR)
 library(RJSONIO)
 
@@ -297,5 +305,14 @@ test_that("gx.job.info", {
             res <- gx.job.info("RJOB1234")
             expect_equal(queryJsonArgs$query, "/web/jobcontrol")
             expect_equal(as.character(queryJsonArgs$params['jobID']), "RJOB1234")
+            clean.after.test()
+        })
+
+test_that("gx.vennDiagrams", {
+            before.test.connection()
+            bioumlQueryValue <<- "{\"values\":[{\"canBeNull\":true,\"promptOverwrite\":false,\"displayName\":\"Left table (T1)\",\"name\":\"table1Path\",\"icon\":\"biouml.plugins.ensembl:biouml/plugins/ensembl/tabletype/resources/genes-ensembl.gif\",\"description\":\"Table which will be represented as left-top circle\",\"readOnly\":false,\"elementClass\":\"ru.biosoft.table.TableDataCollection\",\"type\":\"data-element-path\",\"value\":\"data/Examples/TNF-stimulation of HUVECs GSE2639, Affymetrix HG-U133A microarray/Data/DEGs with limma/Normalized (RMA) DEGs with EBarrays/Condition_2 upreg Ensembl\",\"elementMustExist\":true,\"multiSelect\":false},{\"canBeNull\":true,\"promptOverwrite\":false,\"displayName\":\"Right table (T2)\",\"name\":\"table2Path\",\"icon\":\"biouml.plugins.ensembl:biouml/plugins/ensembl/tabletype/resources/genes-ensembl.gif\",\"description\":\"Table which will be represented as right-top circle\",\"readOnly\":false,\"elementClass\":\"ru.biosoft.table.TableDataCollection\",\"type\":\"data-element-path\",\"value\":\"data/Examples/TNF-stimulation of HUVECs GSE2639, Affymetrix HG-U133A microarray/Data/DEGs with limma/Normalized (RMA) DEGs with limma/Condition_1 vs. Condition_2/Up-regulated genes Ensembl\",\"elementMustExist\":true,\"multiSelect\":false},{\"canBeNull\":true,\"promptOverwrite\":false,\"displayName\":\"Center table (T3)\",\"name\":\"table3Path\",\"icon\":\"ru.biosoft.table:ru/biosoft/table/resources/table.gif\",\"description\":\"Table which will be represented as center-bottom circle\",\"readOnly\":false,\"elementClass\":\"ru.biosoft.table.TableDataCollection\",\"type\":\"data-element-path\",\"value\":\"(select element)\",\"elementMustExist\":true,\"multiSelect\":false},{\"displayName\":\"Simple picture\",\"name\":\"simple\",\"description\":\"All circles has equal radius\",\"readOnly\":false,\"type\":\"bool\",\"value\":\"true\"},{\"auto\":\"off\",\"displayName\":\"Output path\",\"icon\":\"ru.biosoft.access:ru/biosoft/access/resources/collection.gif\",\"description\":\"Folder name to store the results\",\"readOnly\":false,\"type\":\"data-element-path\",\"canBeNull\":false,\"promptOverwrite\":false,\"name\":\"output\",\"elementClass\":\"ru.biosoft.access.FolderCollection\",\"value\":\"data/Projects/ncRNA analysis/Data/Venn-test-4\",\"elementMustExist\":false,\"multiSelect\":false}],\"attributes\":{\"expertOptions\":true},\"type\":0}"
+            res <- gx.vennDiagrams("test.table1","test.table2",table1Name="test.table1.name",table2Name="test.table2.name",output="test.output",wait=F,verbose=F)
+            expect_equal(queryJsonArgs$query, "/web/analysis")
+            expect_equal(as.character(queryJsonArgs$params['de']), "Venn diagrams")
             clean.after.test()
         })

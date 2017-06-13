@@ -6,6 +6,15 @@
 \usage{
 gx.workflow(path, parameters = list(), wait = T, verbose = T)
 }
+\arguments{
+\item{path}{platform path to the workflow}
+
+\item{parameters}{workflow parameters}
+
+\item{wait}{set true to wait for task to complete}
+
+\item{verbose}{switch to get more or less progress info}
+}
 \description{
 Wraps rbiouml function biouml.workflow
 }
