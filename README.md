@@ -11,7 +11,7 @@ You can use the following code to install the geneXplainR package in your R work
 
 ```R
 library(devtools)
-install_github("geneXplainR","geneXplain")
+install_github("genexplain/geneXplainR")
 ```
 
 # References
