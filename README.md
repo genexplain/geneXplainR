@@ -22,6 +22,21 @@ library(devtools)
 install_github("genexplain/geneXplainR")
 ```
 
+We hope to make geneXplainR available through other channels as well, so that there will be further options
+to download and install the software. 
+
+# Usage
+
+A script that using geneXplain make look like this (please note that shown parameters won't work):
+
+```R
+library(geneXplainR)
+gx.login("http://genexample.com/bioumlweb","user","password"),
+
+# Get a listing of your research projects
+gx.ls("data/Projects")
+```
+
 # References
 
 1. Kel, A., Kolpakov, F., Poroikov, V., Selivanova, G. (2011) GeneXplain — Identification of Causal Biomarkers and Drug Targets in Personalized Cancer Pathways. J. Biomol. Tech. 22(suppl.), S1
