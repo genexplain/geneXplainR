@@ -8,8 +8,8 @@ The platform is well-known for its upstream analysis [2], that has been
 developed to identify causal signalling molecules on the basis of experimental data
 like expression measurements.
 
-
-
+geneXplainR is based on and extends the [rbiouml](https://cran.r-project.org/web/packages/rbiouml/index.html) package.
+A goal of this project is to add functionality that helps to make building R pipelines that use the geneXplain platform easier.
 
 # Installation
 
