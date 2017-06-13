@@ -27,7 +27,7 @@ to download and install the software.
 
 # Usage
 
-A script that using geneXplain make look like this (please note that shown parameters won't work):
+A script using geneXplain may look like this (please note that shown parameters won't work):
 
 ```R
 library(geneXplainR)
