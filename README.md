@@ -1,13 +1,21 @@
 # geneXplainR
 
-The geneXplainR package provides an R client for the [geneXplain platform](http://genexplain.com/genexplain-platform/). The geneXplain platform is an online toolbox and workflow management system for a broad range of bioinformatic and systems biology applications.
+The geneXplainR package provides an R client for the 
+[geneXplain platform](http://genexplain.com/genexplain-platform/) [1]. 
+The geneXplain platform is an online toolbox and workflow management 
+system for a broad range of bioinformatic and systems biology applications.
+The platform is well-known for its upstream analysis [2], that has been
+developed to identify causal signalling molecules on the basis of experimental data
+like expression measurements.
+
+
 
 
 # Installation
 
 ## From github.com
 
-You can use the following code to install the geneXplainR package in your R workspace.
+The geneXplainR package can be easily installed from its github repository using *devtools*.
 
 ```R
 library(devtools)
