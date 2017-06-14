@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/genexplain/geneXplainR.svg?branch=master)](https://travis-ci.org/genexplain/geneXplainR)
+
 # geneXplainR
 
 The geneXplainR package provides an R client for the 
