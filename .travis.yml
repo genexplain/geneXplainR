@@ -1,3 +1,7 @@
-language: R
+language: r
 cache: packages
 sudo: false
+
+r:
+  - release
+  
