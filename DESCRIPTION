@@ -6,7 +6,7 @@ Authors@R: c(person("Philip", "Stegmaier", email = "philip.stegmaier@genexplain.
 Description: Access to personal workspace, analysis tools and workflows in the geneXplain platform.
 Depends: R (>= 3.3.3)
 Imports: rbiouml
-Suggests: testthat, knitr
+Suggests: testthat, knitr, rmarkdown
 License: MIT + file LICENSE
 Maintainer: Philip Stegmaier <philip.stegmaier@genexplain.com>
 Author:     Philip Stegmaier <philip.stegmaier@genexplain.com>
