@@ -4,13 +4,14 @@ author: "Philip Stegmaier"
 date: "`r Sys.Date()`"
 show_toc: true
 output:
-  rmarkdown::html_vignette
+  rmarkdown::html_vignette:
     toc: yes
 vignette: >
   %\VignetteIndexEntry{geneXplainR package}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
+
 
 # Introduction
 
