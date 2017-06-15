@@ -39,6 +39,9 @@ gx.login("http://genexample.com/bioumlweb","user","password"),
 # Get a listing of your research projects
 gx.ls("data/Projects")
 ```
+# Documentation and examples
+
+For information about geneXplainR, please refer to the vignettes that come with this package. Furthermore, the *examples* branch of this repository contains number of examples.
 
 # References
 
