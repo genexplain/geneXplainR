@@ -41,7 +41,7 @@ submitting login credentials to the server of choice using the *gx.login* functi
 
 ```{r eval=FALSE}
 library(geneXplainR)
-# Note that words within placeholders (<...>) need to be replaced.
+# Words within placeholders (<...>) need to be replaced.
 gx.login("<server>","<user>","<password>")
 ```
 
@@ -65,12 +65,39 @@ gx.analysis.list()
 gx.analysis.parameters("Convert table")
 
 # Invoke an analysis with the tool
-gx.analysis("Convert table",list(sourceTable = "data/Projects/Example/Data/example_table",
-                                 species     = "human (Homo sapiens)",
-                                 sourceType  = "Genes: Ensembl",
-                                 targetType  = "Genes: Gene symbol",
-                                 outputTable = "data/Projects/Example/Data/example_output_table"))
+gx.analysis("Convert table", list(sourceTable = "data/Projects/Example/Data/example_table",
+                                  species     = "Human (Homo sapiens)",
+                                  sourceType  = "Genes: Ensembl",
+                                  targetType  = "Genes: Gene symbol",
+                                  outputTable = "data/Projects/Example/Data/example_output_table"))
 ```
+
+The *gx.analysis&#42;* functions provide an interface to the platform tools. Those tools are developed
+to carry out a single type of task. Usually, a data analysis consists of many steps invoking various tools
+in sequence, converting output to valid input for the step, and so forth. To replay and automatize sequences of
+tasks the platform has an important type of functionality called **workflows**.
+The geneXplain platform hosts a growing portfolio workflows for various kinds of analyses in the folder *analyses/Workflows*,
+but one can also create custom workflows.
+
+An easy way to find out about the available workflows is to use the *gx.ls* function, which lists contents of a
+specified folder, to browse the folders under *analyses/Workflows*. The same function can be used to inspect the parameters
+for a workflow. Since *gx.workflow* accepts parameter names as they are shown in the web interface, one can also
+open a workflow in the web interface to find out about the necessary parameters.
+
+
+```{r eval=FALSE}
+#... after login
+# Get list of workflows in 'Common'
+gx.ls("data/Workflows/Common")
+
+# Get parameters for specific workflow
+gx.ls("analyses/Workflows/Common/Analyze any DNA sequence, GeneBank")
+
+# Invoke workflow
+gx.workflow("analyses/Workflows/Common/Example workflow", list(exampleParameter="value1"))
+```
+
+
 
 
 
