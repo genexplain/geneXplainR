@@ -41,7 +41,7 @@ gx.ls("data/Projects")
 ```
 # Documentation and examples
 
-For information about geneXplainR, please refer to the vignettes that come with this package. Furthermore, the *examples* branch of this repository contains number of examples.
+For information about geneXplainR, please refer to the vignettes that come with this package. Furthermore, the *examples* branch of this repository contains a number of examples.
 
 # References
 
