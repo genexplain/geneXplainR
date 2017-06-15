@@ -31,9 +31,10 @@ and following by performing computational analyses in the user workspace.
 
 ## Login
 
-It is necessary to create a user account to obtain login credentials. A user account can be created for free
+The platform login is reachable through [this web page](http://genexplain.com/log-in/). It is necessary to 
+create a user account to obtain login credentials. A user account can be created for free
 [here](http://genexplain.com/genexplain-platform-registration/). Through the web interface one can also access
-the platform as *demo* user. The platform login is reachable through [this web page](http://genexplain.com/log-in/).
+the platform as *demo* user which does not require any registration. But data and analyses results are public.
 
 Having a user account, a session with the geneXplainR client commences with loading the library and
 submitting login credentials to the server of choice using the *gx.login* function.
@@ -43,5 +44,33 @@ library(geneXplainR)
 # Note that words within placeholders (<...>) need to be replaced.
 gx.login("<server>","<user>","<password>")
 ```
+
+One can end a session using the *gx.logout* function. However this may not be so important, because sessions expire after some time.
+
+```{r eval=FALSE}
+gx.logout()
+```
+
+## Analysis
+
+Two functions invoke analysis tools or workflows, *gx.analysis* and *gx.workflow*. In addition, there are functions to
+obtain a list of available tools or to inspect their parameters, *gx.analysis.list* and *gx.analysis.parameters*.
+
+```{r eval=FALSE}
+#... after login
+# Get the list of available tools
+gx.analysis.list()
+
+# Show parameters for a specific tool
+gx.analysis.parameters("Convert table")
+
+# Invoke an analysis with the tool
+gx.analysis("Convert table",list(sourceTable = "data/Projects/Example/Data/example_table",
+                                 species     = "human (Homo sapiens)",
+                                 sourceType  = "Genes: Ensembl",
+                                 targetType  = "Genes: Gene symbol",
+                                 outputTable = "data/Projects/Example/Data/example_output_table"))
+```
+
 
 
