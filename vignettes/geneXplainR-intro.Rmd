@@ -113,5 +113,56 @@ library(geneXplainR)
 
 ## Data import and export
 
+From the R client, table import and export simply works with the functions *gx.put* and *gx.get*, respectively.
+For other data types and formats, the functions *gx.import* and *gx.export* apply a specified importer or exporter
+to upload or download files.
 
+Put and get functions are used as follows:
+
+```{r eval=FALSE}
+#... after login
+# Words in placeholders (<...>) need to be replaced with suitable values.
+gx.put("data/Projects/<project name>/Data/<destination folder>", data)
+data <- gx.get("data/Projects/<project name>/Data/<source folder>/<platform table>")
+```
+
+### Import
+
+The *gx.import* function takes as arguments the local file to import,
+the platform folder to import into (usually starting with *data/Projects*),
+the importer to use and a list with parameters for the specified importer.
+
+The list of available importers can be obtained with the *gx.importers* function and
+for a specific importer and the platform folder to import into one can inspect the
+importer parameters using the *gx.import.parameters* function.
+
+Files for which no dedicated importer exists can still be uploaded using the *Generic file* importer.
+Identifying and applying an importer may look like this:
+
+```{r eval=FALSE}
+#... after login
+# Words in placeholders (<...>) need to be replaced with suitable values.
+gx.importers()
+gx.import.parameters("data/Projects/<project name>/Data/<destination folder>", "<importer name>")
+gx.import("<local file>", "<platform destination path>", "<importer>", list("<parameter>"="<value>"))
+```
+
+### Export
+
+Export is possible by specifying the platform item to export, an exporter, parameters of the exporter
+and the local destination file to the *gx.export* function.
+
+Available exporters can be listed using the *gx.exporters* function and parameters for a specific exporter
+and a platform item to export can be viewed using the *gx.export.parameters*.
+
+
+Identifying and applying an exporter may look like this:
+
+```{r eval=FALSE}
+#... after login
+# Words in placeholders (<...>) need to be replaced with suitable values.
+gx.exporters()
+gx.export.parameters("data/Projects/<project name>/Data/<item to export>", "<exporter name>")
+gx.export("<platform item>", "<exporter>", list("<parameter>"="<value>"), "local file")
+```
 
