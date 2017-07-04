@@ -12,5 +12,10 @@ gx.delete(folder, name)
 \item{name}{name of the item}
 }
 \description{
-Delete a workspace item
+This function deletes an item within the workspace. The item may be
+a folder or another type of element.
+}
+\details{
+Handle with care, because deletion is irreversible without a suitable
+backup routine in place.
 }

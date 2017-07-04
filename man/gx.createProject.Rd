@@ -12,5 +12,7 @@ gx.createProject(name, description = "New platform project")
 \item{description}{a short description of the project}
 }
 \description{
-Create a new project
+This function creates a new project within the platform workspace.
+A project is a prerequisite to be able to upload data, perform analyses or
+to run workflows.
 }

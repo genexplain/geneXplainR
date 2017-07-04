@@ -12,5 +12,5 @@ gx.createFolder(path, folderName)
 \item{folderName}{name of the new folder}
 }
 \description{
-Create a folder
+This function creates a new folder within an existing parent folder.
 }

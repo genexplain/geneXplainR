@@ -48,8 +48,7 @@ gx.createFolder <- function(path, folderName) {
 #' Delete a workspace item
 #'
 #' This function deletes an item within the workspace. The item may be
-#' a folder or another type of element.
-#'
+#' a folder or another type of element. 
 #' Handle with care, because deletion is irreversible without a suitable
 #' backup routine in place.
 #'
@@ -68,6 +67,7 @@ gx.delete <- function(folder, name) {
 
 #' List contents of platform folder
 #' 
+#' This function returns a data frame
 #' Wraps rbiouml function biouml.ls
 #'
 #' @param path path of folder to list
