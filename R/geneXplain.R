@@ -16,6 +16,10 @@ gx.getInternals <- function() {
 
 #' Create a new project
 #'
+#' This function creates a new project within the platform workspace.
+#' A project is a prerequisite to be able to upload data, perform analyses or
+#' to run workflows.
+#'
 #' @param name name of the project
 #' @param description a short description of the project
 #' @export
@@ -25,6 +29,8 @@ gx.createProject <- function(name, description="New platform project") {
     gx.imp$biouml.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description)) }
 
 #' Create a folder
+#'
+#' This function creates a new folder within an existing parent folder.
 #'
 #' @param path        parent folder in which the new folder is created
 #' @param folderName  name of the new folder 
@@ -40,6 +46,12 @@ gx.createFolder <- function(path, folderName) {
 }
 
 #' Delete a workspace item
+#'
+#' This function deletes an item within the workspace. The item may be
+#' a folder or another type of element.
+#'
+#' Handle with care, because deletion is irreversible without a suitable
+#' backup routine in place.
 #'
 #' @param folder folder that contains the item
 #' @param name   name of the item
