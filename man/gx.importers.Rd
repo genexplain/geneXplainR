@@ -7,9 +7,15 @@
 gx.importers()
 }
 \description{
-Wraps rbiouml function biouml.importers
+Returns a vector with available importer names. An importer
+uploads a file to the platform, where it is imported as a
+certain data type, e.g. as pathway or molecular network.
 }
 \seealso{
+\code{\link{gx.import}}
+
+\code{\link{gx.import.parameters}}
+
 \code{\link[rbiouml]{biouml.importers}}
 }
 \keyword{importer,}

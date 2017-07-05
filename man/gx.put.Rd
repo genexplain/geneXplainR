@@ -12,7 +12,8 @@ gx.put(path, value)
 \item{value}{R object to put into platform}
 }
 \description{
-Wraps rbiouml function biouml.put
+This function stores a data frame in the specified path
+of the platform workspace.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.put}}

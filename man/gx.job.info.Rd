@@ -10,7 +10,10 @@ gx.job.info(jobID)
 \item{jobID}{id of the platform task}
 }
 \description{
-Wraps rbiouml function biouml.job.info
+This function retrieves status information for a task running
+on the platform. A common use case is to check the status of
+tasks invoked asynchronously using \emph{gx.analysis} and \emph{gx.workflow} with
+\code{wait=F}.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.job.info}}

@@ -7,7 +7,7 @@
 gx.logout()
 }
 \description{
-Wraps rbiouml function biouml.logout
+Signs out of a platform session.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.logout}}

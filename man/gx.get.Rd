@@ -2,7 +2,7 @@
 % Please edit documentation in R/geneXplain.R
 \name{gx.get}
 \alias{gx.get}
-\title{Gets a table from the platform workspace into a data.frame}
+\title{Gets a table from the platform workspace}
 \usage{
 gx.get(path)
 }
@@ -10,7 +10,7 @@ gx.get(path)
 \item{path}{path of object to load into a data.frame}
 }
 \description{
-Wraps rbiouml function biouml.get
+Returns a list containing the specified table.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.get}}

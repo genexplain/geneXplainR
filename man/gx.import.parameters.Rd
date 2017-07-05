@@ -2,7 +2,7 @@
 % Please edit documentation in R/geneXplain.R
 \name{gx.import.parameters}
 \alias{gx.import.parameters}
-\title{Returns parameters defined for given importer and path to import to}
+\title{Returns  parameters defined for given importer and path to import to}
 \usage{
 gx.import.parameters(path, importer)
 }
@@ -12,9 +12,14 @@ gx.import.parameters(path, importer)
 \item{importer}{importer whose parameters will be shown}
 }
 \description{
-Wraps rbiouml function biouml.import.parameters
+Given the path to import into, this function returns a list with
+parameter names and description for a selected importer type.
 }
 \seealso{
+\code{\link{gx.import}}
+
+\code{\link{gx.importers}}
+
 \code{\link[rbiouml]{biouml.import.parameters}}
 }
 \keyword{import,}

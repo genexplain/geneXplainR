@@ -15,7 +15,7 @@ gx.login(server = "https://platform.genexplain.com", user = "",
 \item{password}{password}
 }
 \description{
-Wraps rbiouml function biouml.login
+Starts a platform session by signing in with specified credentials.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.login}}

@@ -16,9 +16,18 @@ gx.import(file, parentPath, importer, importer.params = list())
 \item{importer.params}{parameters for specified importer}
 }
 \description{
-Wraps rbiouml function biouml.import
+This function uploads a file into the platform using 
+the specified importer configured by its
+parameters.
+The function \emph{gx.importers} lists the available
+importers. Parameters for a specific importer can
+be inspected using the \emph{gx.import.parameters} function.
 }
 \seealso{
+\code{\link{gx.importers}}
+
+\code{\link{gx.import.parameters}}
+
 \code{\link[rbiouml]{biouml.import}}
 }
 \keyword{import}

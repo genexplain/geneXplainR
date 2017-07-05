@@ -26,10 +26,10 @@ just invoke the analysis asynchronously. In the latter case it may be desireable
 to keep the \emph{platform job id}, which is returned by this function, to
 be able to request the job status. Analysis progress can be observed by
 setting \code{verbose=T} (default).
-Currently there is no analog for \emph{gx.analysis.parameters} to inspect workflow
+Currently there is no workflow complement for \emph{gx.analysis.parameters} to inspect workflow
 parameters. Workflow parameters are specified as shown in the platform web interface
-and parameter names can be listed using \emph{gx.ls}, where the output contains other
-elements of the workflow.
+and parameter names can be listed using \emph{gx.ls}, but the output also contains other
+elements besides analysis parameters.
 }
 \seealso{
 \code{\link{gx.analysis}}

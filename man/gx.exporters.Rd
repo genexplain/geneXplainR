@@ -7,9 +7,16 @@
 gx.exporters()
 }
 \description{
-Wraps rbiouml function biouml.exporters
+Returns a vector with exporter names. An exporter transfers an item
+from the platform workspace to a local file in a certain format.
+Further information about exporters can be obtained in the context
+of data items to export using \emph{gx.export.parameters}.
 }
 \seealso{
+\code{\link{gx.export}}
+
+\code{\link{gx.export.parameters}}
+
 \code{\link[rbiouml]{biouml.exporters}}
 }
 \keyword{exporter,}

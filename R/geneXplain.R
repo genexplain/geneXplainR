@@ -176,6 +176,7 @@ gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
 #' The function \emph{gx.exporters} lists available exporters and the
 #' parameters of an exporter can be inspected using the function \emph{gx.export.parameters}.
 #'
+#' @param path            platform path of item to export
 #' @param exporter        exporter to use for export
 #' @param exporter.params parameters of the exporter
 #' @param target.file     local file to export to
@@ -190,10 +191,15 @@ gx.export <- function(path, exporter="Tab-separated text (*.txt)", exporter.para
 }
 
 #' Lists available exporters
-#' 
-#' Wraps rbiouml function biouml.exporters
+#'
+#' Returns a vector with exporter names. An exporter transfers an item
+#' from the platform workspace to a local file in a certain format.
+#' Further information about exporters can be obtained in the context
+#' of data items to export using \emph{gx.export.parameters}.
 #'
 #' @keywords exporter, list
+#' @seealso \code{\link{gx.export}}
+#' @seealso \code{\link{gx.export.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.exporters}}
 #' @export
 gx.exporters <- function() {
@@ -203,11 +209,14 @@ gx.exporters <- function() {
 
 #' Returns parameters defined for given export and path to export from
 #' 
-#' Wraps rbiouml function biouml.export.parameters
+#' Given the path of an item to export, this function shows the
+#' parameters for a selected exporter.
 #'
 #' @param path     path of the object to export
 #' @param exporter exporter to use for the export
 #' @keywords exporter, parameters
+#' @seealso \code{\link{gx.export}}
+#' @seealso \code{\link{gx.exporters}}
 #' @seealso \code{\link[rbiouml]{biouml.export.parameters}}
 #' @export
 gx.export.parameters <- function(path, exporter) {
@@ -215,9 +224,9 @@ gx.export.parameters <- function(path, exporter) {
     rbiouml::biouml.export.parameters(path, exporter)
 }
 
-#' Gets a table from the platform workspace into a data.frame
-#' 
-#' Wraps rbiouml function biouml.get
+#' Gets a table from the platform workspace
+#'
+#' Returns a list containing the specified table.
 #'
 #' @param path  path of object to load into a data.frame
 #' @keywords get
@@ -229,8 +238,9 @@ gx.get <- function(path) {
 }
 
 #' Uploads a table to the platform
-#' 
-#' Wraps rbiouml function biouml.put
+#'
+#' This function stores a data frame in the specified path
+#' of the platform workspace.
 #'
 #' @param path    platform path of new table
 #' @param value   R object to put into platform 
@@ -244,13 +254,20 @@ gx.put <- function(path, value) {
 
 #' Imports a file into the platform
 #' 
-#' Wraps rbiouml function biouml.import
+#' This function uploads a file into the platform using 
+#' the specified importer configured by its
+#' parameters.
+#' The function \emph{gx.importers} lists the available
+#' importers. Parameters for a specific importer can
+#' be inspected using the \emph{gx.import.parameters} function.
 #'
 #' @param file            local file to import
 #' @param parentPath      path of folder to import into
 #' @param importer        importer to use
 #' @param importer.params parameters for specified importer
 #' @keywords import
+#' @seealso \code{\link{gx.importers}}
+#' @seealso \code{\link{gx.import.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.import}}
 #' @export
 gx.import <- function(file, parentPath, importer, importer.params=list()) {
@@ -260,9 +277,13 @@ gx.import <- function(file, parentPath, importer, importer.params=list()) {
 
 #' Lists available importers
 #' 
-#' Wraps rbiouml function biouml.importers
+#' Returns a vector with available importer names. An importer
+#' uploads a file to the platform, where it is imported as a
+#' certain data type, e.g. as pathway or molecular network.
 #'
 #' @keywords importer, list
+#' @seealso \code{\link{gx.import}}
+#' @seealso \code{\link{gx.import.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.importers}}
 #' @export
 gx.importers <- function() {
@@ -270,13 +291,16 @@ gx.importers <- function() {
     rbiouml::biouml.importers()
 }
 
-#' Returns parameters defined for given importer and path to import to
+#' Returns  parameters defined for given importer and path to import to
 #' 
-#' Wraps rbiouml function biouml.import.parameters
+#' Given the path to import into, this function returns a list with
+#' parameter names and description for a selected importer type.
 #'
 #' @param path      path to import to
 #' @param importer  importer whose parameters will be shown
 #' @keywords import, parameters
+#' @seealso \code{\link{gx.import}}
+#' @seealso \code{\link{gx.importers}}
 #' @seealso \code{\link[rbiouml]{biouml.import.parameters}}
 #' @export
 gx.import.parameters <- function(path, importer) {
@@ -285,8 +309,8 @@ gx.import.parameters <- function(path, importer) {
 }
 
 #' Signs into geneXplain platform
-#' 
-#' Wraps rbiouml function biouml.login
+#'
+#' Starts a platform session by signing in with specified credentials.
 #'
 #' @param server   server to connect to
 #' @param user     username
@@ -300,7 +324,7 @@ gx.login <- function(server='https://platform.genexplain.com', user='', password
 
 #' Terminates an existing platform session
 #' 
-#' Wraps rbiouml function biouml.logout
+#' Signs out of a platform session.
 #'
 #' @keywords logout
 #' @seealso \code{\link[rbiouml]{biouml.logout}}
@@ -311,7 +335,10 @@ gx.logout <- function() {
 
 #' Gets status info for a job running on the platform
 #' 
-#' Wraps rbiouml function biouml.job.info
+#' This function retrieves status information for a task running
+#' on the platform. A common use case is to check the status of
+#' tasks invoked asynchronously using \emph{gx.analysis} and \emph{gx.workflow} with
+#' \code{wait=F}.
 #'
 #' @param jobID  id of the platform task
 #' @keywords job, info

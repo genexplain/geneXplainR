@@ -12,9 +12,14 @@ gx.export.parameters(path, exporter)
 \item{exporter}{exporter to use for the export}
 }
 \description{
-Wraps rbiouml function biouml.export.parameters
+Given the path of an item to export, this function shows the
+parameters for a selected exporter.
 }
 \seealso{
+\code{\link{gx.export}}
+
+\code{\link{gx.exporters}}
+
 \code{\link[rbiouml]{biouml.export.parameters}}
 }
 \keyword{exporter,}

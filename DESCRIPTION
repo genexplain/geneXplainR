@@ -1,6 +1,6 @@
 Package: geneXplainR
 Title: R interface for the geneXplain platform
-Version: 0.3
+Version: 0.4
 Date: 2017-01-01
 Authors@R: c(person("Philip", "Stegmaier", email = "philip.stegmaier@genexplain.com", role = c("aut", "cre")))
 Description: Access to personal workspace, analysis tools and workflows in the geneXplain platform.

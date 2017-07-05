@@ -8,6 +8,8 @@ gx.export(path, exporter = "Tab-separated text (*.txt)",
   exporter.params = list(), target.file = "genexplain.out")
 }
 \arguments{
+\item{path}{platform path of item to export}
+
 \item{exporter}{exporter to use for export}
 
 \item{exporter.params}{parameters of the exporter}
@@ -15,8 +17,10 @@ gx.export(path, exporter = "Tab-separated text (*.txt)",
 \item{target.file}{local file to export to}
 }
 \description{
-This function exports a specified item in the platform
+This function exports a specified item from the platform workspace
 to a local file.
+The function \emph{gx.exporters} lists available exporters and the
+parameters of an exporter can be inspected using the function \emph{gx.export.parameters}.
 }
 \seealso{
 \code{\link{gx.exporters}}
