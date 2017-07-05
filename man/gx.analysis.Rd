@@ -16,9 +16,22 @@ gx.analysis(analysisName, parameters = list(), wait = T, verbose = T)
 \item{verbose}{TRUE to see some progress info. Default: TRUE}
 }
 \description{
-Wraps rbiouml function biouml.analysis
+This function invokes an analysis tool with specified parameters.
+}
+\details{
+The function can \emph{wait} for the analysis to complete (default) or
+just invoke the analysis asynchronously. In the latter case it may be desireable
+to keep the \emph{platform job id}, which is returned by this function, to
+be able to request the job status. Analysis progress can be observed by
+setting \code{verbose=T} (default).
+The function \emph{gx.analysis.parameters} shows available parameters for an analysis tool
+and \emph{gx.analysis.list} lists the available tools.
 }
 \seealso{
+\code{\link{gx.analysis.list}}
+
+\code{\link{gx.analysis.parameters}}
+
 \code{\link[rbiouml]{biouml.analysis}}
 }
 \keyword{analysis}

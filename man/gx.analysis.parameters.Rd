@@ -10,9 +10,13 @@ gx.analysis.parameters(analysisName)
 \item{analysisName}{name of the analysis tool}
 }
 \description{
-Wraps rbiouml function biouml.analysis.parameters
+Returns a list with parameter names and descriptions.
 }
 \seealso{
+\code{\link{gx.analysis}}
+
+\code{\link{gx.analysis.list}}
+
 \code{\link[rbiouml]{biouml.analysis.parameters}}
 }
 \keyword{analysis,}

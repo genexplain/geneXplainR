@@ -12,7 +12,10 @@ gx.ls(path, extended = F)
 \item{extended}{get extended info including data types and whether folders have children}
 }
 \description{
-Wraps rbiouml function biouml.ls
+This function returns a list of contents of specified folder.
+Project folders are usually located under \emph{data/Projects}.
+The \emph{extended} output contains in addition an indicator whether
+a folder element has further child elements and the type of the element.
 }
 \seealso{
 \code{\link[rbiouml]{biouml.ls}}

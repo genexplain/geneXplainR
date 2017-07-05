@@ -7,9 +7,15 @@
 gx.analysis.list()
 }
 \description{
-Wraps rbiouml function biouml.analysis.list
+Returns a list containing the available analysis tools
+and their tool group. Tools are organized into thematic groups
+like \emph{Data manipulation} or \emph{Site analysis}.
 }
 \seealso{
+\code{\link{gx.analysis}}
+
+\code{\link{gx.analysis.parameters}}
+
 \code{\link[rbiouml]{biouml.analysis.list}}
 }
 \keyword{analysis,}

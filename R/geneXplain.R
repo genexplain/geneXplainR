@@ -83,13 +83,24 @@ gx.ls <- function(path, extended=F) {
 
 #' Execute analysis using one of the integrated tools
 #' 
-#' Wraps rbiouml function biouml.analysis
+#' This function invokes an analysis tool with specified parameters.
+#'
+#' The function can \emph{wait} for the analysis to complete (default) or
+#' just invoke the analysis asynchronously. In the latter case it may be desireable
+#' to keep the \emph{platform job id}, which is returned by this function, to
+#' be able to request the job status. Analysis progress can be observed by
+#' setting \code{verbose=T} (default).
+#' The function \emph{gx.analysis.parameters} shows available parameters for an analysis tool
+#' and \emph{gx.analysis.list} lists the available tools.
+#' 
 #'
 #' @param analysisName name of analysis tool
 #' @param parameters parameters to configure the analysis
 #' @param wait TRUE to wait for the analysis to complete. Default: TRUE
 #' @param verbose TRUE to see some progress info. Default: TRUE
 #' @keywords analysis
+#' @seealso \code{\link{gx.analysis.list}}
+#' @seealso \code{\link{gx.analysis.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.analysis}}
 #' @export
 gx.analysis <- function(analysisName, parameters=list(), wait=T, verbose=T) {
@@ -99,9 +110,13 @@ gx.analysis <- function(analysisName, parameters=list(), wait=T, verbose=T) {
 
 #' Lists available analysis tools
 #' 
-#' Wraps rbiouml function biouml.analysis.list
+#' Returns a list containing the available analysis tools
+#' and their tool group. Tools are organized into thematic groups
+#' like \emph{Data manipulation} or \emph{Site analysis}.
 #'
 #' @keywords analysis, list
+#' @seealso \code{\link{gx.analysis}}
+#' @seealso \code{\link{gx.analysis.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.analysis.list}}
 #' @export
 gx.analysis.list <- function() {
@@ -111,10 +126,12 @@ gx.analysis.list <- function() {
 
 #' Shows parameters for the specified analysis tool
 #' 
-#' Wraps rbiouml function biouml.analysis.parameters
+#' Returns a list with parameter names and descriptions. 
 #'
 #' @param analysisName  name of the analysis tool
 #' @keywords analysis, parameters
+#' @seealso \code{\link{gx.analysis}}
+#' @seealso \code{\link{gx.analysis.list}}
 #' @seealso \code{\link[rbiouml]{biouml.analysis.parameters}}
 #' @export
 gx.analysis.parameters <- function(analysisName) {
