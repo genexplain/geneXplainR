@@ -16,9 +16,26 @@ gx.workflow(path, parameters = list(), wait = T, verbose = T)
 \item{verbose}{switch to get more or less progress info}
 }
 \description{
-Wraps rbiouml function biouml.workflow
+This function invokes a workflow with specified parameters. A workflow
+is identified by its path in the platform workspace, e.g. many workflows are provided
+under \emph{analyses/Workflows}.
+}
+\details{
+The function can \emph{wait} for the analysis to complete (default) or
+just invoke the analysis asynchronously. In the latter case it may be desireable
+to keep the \emph{platform job id}, which is returned by this function, to
+be able to request the job status. Analysis progress can be observed by
+setting \code{verbose=T} (default).
+Currently there is no analog for \emph{gx.analysis.parameters} to inspect workflow
+parameters. Workflow parameters are specified as shown in the platform web interface
+and parameter names can be listed using \emph{gx.ls}, where the output contains other
+elements of the workflow.
 }
 \seealso{
+\code{\link{gx.analysis}}
+
+\code{\link{gx.ls}}
+
 \code{\link[rbiouml]{biouml.workflow}}
 }
 \keyword{workflow}

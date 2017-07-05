@@ -141,13 +141,27 @@ gx.analysis.parameters <- function(analysisName) {
 
 #' Executes workflow with specified parameters
 #' 
-#' Wraps rbiouml function biouml.workflow
+#' This function invokes a workflow with specified parameters. A workflow
+#' is identified by its path in the platform workspace, e.g. many workflows are provided
+#' under \emph{analyses/Workflows}.
+#'
+#' The function can \emph{wait} for the analysis to complete (default) or
+#' just invoke the analysis asynchronously. In the latter case it may be desireable
+#' to keep the \emph{platform job id}, which is returned by this function, to
+#' be able to request the job status. Analysis progress can be observed by
+#' setting \code{verbose=T} (default).
+#' Currently there is no workflow complement for \emph{gx.analysis.parameters} to inspect workflow
+#' parameters. Workflow parameters are specified as shown in the platform web interface
+#' and parameter names can be listed using \emph{gx.ls}, but the output also contains other
+#' elements besides analysis parameters.
 #'
 #' @param path        platform path to the workflow
 #' @param parameters  workflow parameters
 #' @param wait        set true to wait for task to complete
 #' @param verbose     switch to get more or less progress info
 #' @keywords workflow
+#' @seealso \code{\link{gx.analysis}}
+#' @seealso \code{\link{gx.ls}}
 #' @seealso \code{\link[rbiouml]{biouml.workflow}}
 #' @export
 gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
@@ -157,13 +171,17 @@ gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
 
 #' Exports item using specified exporter
 #' 
-#' Wraps rbiouml function biouml.export
+#' This function exports a specified item from the platform workspace
+#' to a local file.
+#' The function \emph{gx.exporters} lists available exporters and the
+#' parameters of an exporter can be inspected using the function \emph{gx.export.parameters}.
 #'
-#' @param path            path to export
 #' @param exporter        exporter to use for export
 #' @param exporter.params parameters of the exporter
 #' @param target.file     local file to export to
 #' @keywords export
+#' @seealso \code{\link{gx.exporters}}
+#' @seealso \code{\link{gx.export.parameters}}
 #' @seealso \code{\link[rbiouml]{biouml.export}}
 #' @export
 gx.export <- function(path, exporter="Tab-separated text (*.txt)", exporter.params=list(), target.file="genexplain.out") {
