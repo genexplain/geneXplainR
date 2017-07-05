@@ -49,8 +49,7 @@ gx.createFolder <- function(path, folderName) {
 #'
 #' This function deletes an item within the workspace. The item may be
 #' a folder or another type of element. 
-#' Handle with care, because deletion is irreversible without a suitable
-#' backup routine in place.
+#' Handle with care, because deletion may be irreversible.
 #'
 #' @param folder folder that contains the item
 #' @param name   name of the item
@@ -67,8 +66,10 @@ gx.delete <- function(folder, name) {
 
 #' List contents of platform folder
 #' 
-#' This function returns a data frame
-#' Wraps rbiouml function biouml.ls
+#' This function returns a list of contents of specified folder.
+#' Project folders are usually located under \emph{data/Projects}.
+#' The \emph{extended} output contains in addition an indicator whether
+#' a folder element has further child elements and the type of the element.
 #'
 #' @param path path of folder to list
 #' @param extended get extended info including data types and whether folders have children
