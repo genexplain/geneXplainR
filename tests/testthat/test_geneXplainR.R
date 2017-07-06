@@ -330,3 +330,11 @@ test_that("gx.mapGenesToOntologies", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Mapping to ontologies (Gene table)")
               clean.after.test()
         })
+
+
+test_that("gx.explainMyGenes", {
+              before.test.connection()
+              res <- gx.explainMyGenes(inputTable="test.table",species="test.species",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Explain my genes")
+              clean.after.test()
+        })

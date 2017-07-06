@@ -71,3 +71,24 @@ gx.mapGenesToOntologies <- function(inputTable,species="Human (Homo sapiens)",re
                 wait,
                 verbose)
 }
+
+#' Runs the workflow \emph{Explain my genes}
+#'
+#' @param inputTable    input table with gene ids
+#' @param species       species of the input track genome
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, upstream analysis
+#' @export
+gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/Common/Explain my genes",
+                list("Input gene set" = inputTable,
+                     "Species"        = species,
+                     "Skip completed" = skipCompleted,
+                     "Results folder" = resultFolder),
+                wait,
+                verbose)
+}
+
