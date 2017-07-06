@@ -34,17 +34,39 @@ gx.vennDiagrams <- function(table1Path,table2Path,table3Path="",table1Name="Left
 
 #' Runs the workflow \emph{ChIP-Seq - Identify and classify target genes}
 #'
-#' @param inputTrack   path to track with input ChIP-seq intervals
-#' @param species      species of the input track genome
-#' @param resultFolder path of result folder
-#' @param wait         set true to wait for the analysis to complete
-#' @param verbose      set true for more progress info
+#' @param inputTrack    path to track with input ChIP-seq intervals
+#' @param species       species of the input track genome
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
 #' @keywords workflow, ChIP-seq, classification, target gene
 #' @export
-gx.classifyChipSeqTargets <- function(inputTrack,species="Human (Homo sapiens)",resultFolder,wait=T,verbose=F) {
+gx.classifyChipSeqTargets <- function(inputTrack,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
     gx.workflow("analyses/Workflows/Common/ChIP-Seq - Identify and classify target genes",
                 list("Input track"    = inputTrack,
                      "Species"        = species,
+                     "Skip completed" = skipCompleted,
+                     "Results folder" = resultFolder),
+                wait,
+                verbose)
+}
+
+#' Runs the workflow \emph{Mapping to ontologies (Gene table)}
+#'
+#' @param inputTable    input table with gene ids
+#' @param species       species of the input track genome
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, classification, ontology, gene, function
+#' @export
+gx.mapGenesToOntologies <- function(inputTable,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/Common/Mapping to ontologies (Gene table)",
+                list("Input table"    = inputTable,
+                     "Species"        = species,
+                     "Skip completed" = skipCompleted,
                      "Results folder" = resultFolder),
                 wait,
                 verbose)

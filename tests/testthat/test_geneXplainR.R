@@ -323,3 +323,10 @@ test_that("gx.classifyChipSeqTargets", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/ChIP-Seq - Identify and classify target genes")
               clean.after.test()
         })
+
+test_that("gx.mapGenesToOntologies", {
+              before.test.connection()
+              res <- gx.mapGenesToOntologies(inputTable="test.table",species="test.species",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Mapping to ontologies (Gene table)")
+              clean.after.test()
+        })
