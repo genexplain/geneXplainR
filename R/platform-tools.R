@@ -151,7 +151,7 @@ gx.ebarraysWorkflow <- function(inputTable,probeType="Probes: Affymetrix",specie
                    "Control_columns" = controlColumns,
                    "Skip completed"  = skipCompleted,
                    "Results folder"  = resultFolder)
-    for (i in 1:5) {
+    for (i in 2:5) {
         cnd <- paste0("group_",i)
         cls <- paste0("Columns_",cnd)
         if (length(conditions[[cls]]) > 0) {
@@ -163,6 +163,40 @@ gx.ebarraysWorkflow <- function(inputTable,probeType="Probes: Affymetrix",specie
     }
     gx.workflow("analyses/Workflows/Common/Compute differentially expressed genes using EBarrays",
                 params,
+                wait,
+                verbose)
+}
+
+
+#' Runs the workflow \emph{Identify enriched motifs in promoters (TRANSFAC(R))}
+#'
+#' @param inputYesSet   yes/positive/foreground gene set
+#' @param inputNoSet    no/negative/background gene set
+#' @param profile       matrix profile
+#' @param species       species of the input track genome
+#' @param foldEnriched  filter by fold enrichment
+#' @param promoterStart first base of a promoter relative to TSS
+#' @param promoterEnd   last base of a promoter relative to TSS
+#' @param allowBigInput set true to allow for large data sets
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, 
+#' @export
+gx.enrichedTFBSGenes <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,allowBigInput=F,resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/TRANSFAC/Identify enriched motifs in promoters (TRANSFAC(R))",
+                list("Input Yes gene set"             = inputYesSet,
+                     "Input No gene set"              = inputNoSet,
+                     "Profile"                        = profile,
+                     "Species"                        = species,
+                     "Filter by TFBS enrichment fold" = foldEnriched,
+                     "Start promoter"                 = promoterStart,
+                     "End promoter"                   = promoterEnd,
+                     "Allow big input"                = allowBigInput,
+                     "Result folder"                  = resultFolder,
+                     "Skip completed"                 = skipCompleted,
+                     "Results folder"                 = resultFolder),
                 wait,
                 verbose)
 }

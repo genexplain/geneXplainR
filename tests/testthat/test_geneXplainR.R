@@ -19,7 +19,7 @@ queryArgs     <<- list()
 queryJsonArgs <<- list()
 
 defaultQueryValue <<- "{\"type\":0,\"values\":\"\"}"
-bioumlQueryValue  <<- defaultQueryValue
+iioumlQueryValue  <<- defaultQueryValue
 
 queryJSONValue   <<- function(simplify=T, reconnect=T) {
     fromJSON(bioumlQueryValue, simplify=simplify, asText=T)
@@ -356,3 +356,12 @@ test_that("gx.ebarraysWorkflow", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Compute differentially expressed genes using EBarrays")
               clean.after.test()
         })
+
+test_that("gx.enrichedTFBSGenes", {
+              before.test.connection()
+              res <- gx.enrichedTFBSGenes(inputYesSet="test.yes",inputNoSet="test.no",species="test.species",
+                                          profile="test.profile",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/TRANSFAC/Identify enriched motifs in promoters (TRANSFAC(R))")
+              clean.after.test()
+        })
+
