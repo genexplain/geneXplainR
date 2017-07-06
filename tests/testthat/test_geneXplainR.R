@@ -316,3 +316,10 @@ test_that("gx.vennDiagrams", {
             expect_equal(as.character(queryJsonArgs$params['de']), "Venn diagrams")
             clean.after.test()
         })
+
+test_that("gx.classifyChipSeqTargets", {
+              before.test.connection()
+              res <- gx.classifyChipSeqTargets(inputTrack="test.track",species="test.species",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/ChIP-Seq - Identify and classify target genes")
+              clean.after.test()
+        })
