@@ -338,3 +338,12 @@ test_that("gx.explainMyGenes", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Explain my genes")
               clean.after.test()
         })
+
+test_that("gx.limmaWorkflow", {
+              before.test.connection()
+              res <- gx.limmaWorkflow(inputTable="test.table",probeType="test.probes",species="test.species",
+                                      conditions=list("Condition_1"="Test","Condition_2"="Control","1_Columns"=c("col1","col2"),"2_Columns"=c("col3","col4")),
+                                      resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Compute differentially expressed genes using Limma")
+              clean.after.test()
+        })
