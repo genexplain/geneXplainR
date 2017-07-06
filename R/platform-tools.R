@@ -106,12 +106,23 @@ gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFo
 #' @export
 gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="Human (Homo sapiens)",conditions=list(),resultFolder,skipCompleted=T,wait=T,verbose=F) {
     stopifnot(length(conditions) > 1)
-    conditions[["Input table"]]    = inputTable
-    conditions[["Species"]]        = species
-    conditions[["Skip completed"]] = skipCompleted
-    conditions[["Results folder"]] = resultFolder
+    params <- list("Input table"    = inputTable,
+                   "Probe type"     = probeType,
+                   "Species"        = species,
+                   "Skip completed" = skipCompleted,
+                   "Results folder" = resultFolder)
+    for (i in 1:5) {
+        cnd <- paste0("Condition_",i)
+        cls <- paste0(i,"_Columns")
+        if (length(conditions[[cls]]) > 0) {
+            params[[cls]] <- conditions[[cls]]
+            if (length(conditions[[cnd]]) > 0) {
+                params[[cnd]] <- conditions[[cnd]]
+            }
+        }
+    }
     gx.workflow("analyses/Workflows/Common/Compute differentially expressed genes using Limma",
-                conditions,
+                params,
                 wait,
                 verbose)
 }

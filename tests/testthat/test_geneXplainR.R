@@ -273,7 +273,6 @@ test_that("gx.put", {
 
 test_that("gx.import", {
             before.test.connection()
-            #expect_equal(1,2)
             clean.after.test()
         })
 
