@@ -32,4 +32,20 @@ gx.vennDiagrams <- function(table1Path,table2Path,table3Path="",table1Name="Left
                     simple=simple),wait,verbose)
 }
 
-
+#' Runs the workflow \emph{ChIP-Seq - Identify and classify target genes}
+#'
+#' @param inputTrack   path to track with input ChIP-seq intervals
+#' @param species      species of the input track genome
+#' @param resultFolder path of result folder
+#' @param wait         set true to wait for the analysis to complete
+#' @param verbose      set true for more progress info
+#' @keywords workflow, ChIP-seq, classification, target gene
+#' @export
+gx.classifyChipSeqTargets <- function(inputTrack,species="Human (Homo sapiens)",resultFolder,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/Common/ChIP-Seq - Identify and classify target genes",
+                list("Input track"    = inputTrack,
+                     "Species"        = species,
+                     "Results folder" = resultFolder),
+                wait,
+                verbose)
+}
