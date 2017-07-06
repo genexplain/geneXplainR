@@ -102,7 +102,7 @@ gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFo
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
-#' @keywords workflow, upstream analysis
+#' @keywords workflow, differential expression, limma
 #' @export
 gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="Human (Homo sapiens)",conditions=list(),resultFolder,skipCompleted=T,wait=T,verbose=F) {
     stopifnot(length(conditions) > 1)
@@ -122,6 +122,46 @@ gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="
         }
     }
     gx.workflow("analyses/Workflows/Common/Compute differentially expressed genes using Limma",
+                params,
+                wait,
+                verbose)
+}
+
+#' Runs the workflow \emph{Compute differentially expressed genes using EBarrays}
+#'
+#' @param inputTable     input table with expression data
+#' @param probeType      type of probes
+#' @param species        species of the input track genome
+#' @param controlName    name for the control column group
+#' @param controlColumns list of control column names
+#' @param conditions     a list with condition names and columns
+#' @param resultFolder   path of result folder
+#' @param skipCompleted  skip already completed steps
+#' @param wait           set true to wait for the analysis to complete
+#' @param verbose        set true for more progress info
+#' @keywords workflow, differential expression, EBarrays
+#' @export
+gx.ebarraysWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="Human (Homo sapiens)",controlName="Control",controlColumns=c(),conditions=list(),resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    stopifnot(length(conditions) > 1)
+    stopifnot(length(controlColumns) > 0)
+    params <- list("Input table"     = inputTable,
+                   "Probe type"      = probeType,
+                   "Species"         = species,
+                   "Control group"   = controlName,
+                   "Control_columns" = controlColumns,
+                   "Skip completed"  = skipCompleted,
+                   "Results folder"  = resultFolder)
+    for (i in 1:5) {
+        cnd <- paste0("group_",i)
+        cls <- paste0("Columns_",cnd)
+        if (length(conditions[[cls]]) > 0) {
+            params[[cls]] <- conditions[[cls]]
+            if (length(conditions[[cnd]]) > 0) {
+                params[[cnd]] <- conditions[[cnd]]
+            }
+        }
+    }
+    gx.workflow("analyses/Workflows/Common/Compute differentially expressed genes using EBarrays",
                 params,
                 wait,
                 verbose)

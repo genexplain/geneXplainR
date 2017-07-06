@@ -346,3 +346,13 @@ test_that("gx.limmaWorkflow", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Compute differentially expressed genes using Limma")
               clean.after.test()
         })
+
+test_that("gx.ebarraysWorkflow", {
+              before.test.connection()
+              res <- gx.ebarraysWorkflow(inputTable="test.table",probeType="test.probes",species="test.species",
+                                      controlName="test.control",controlColumns=c("test.col.1","test.col.2"),
+                                      conditions=list("group_1"="Test","group_2"="Test_2","Columns_group_1"=c("col1","col2"),"Columns_group_2"=c("col3","col4")),
+                                      resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/Common/Compute differentially expressed genes using EBarrays")
+              clean.after.test()
+        })
