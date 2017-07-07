@@ -94,6 +94,18 @@ gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFo
 
 #' Runs the workflow \emph{Compute differentially expressed genes using Limma}
 #'
+#' This function computes differentially expressed genes using Limma. Limma
+#' output tables (one for each condition pair) are located in the result folder
+#' named after the compared conditions.
+#'
+#' The conditions need to be specified in the corresponding list parameter.
+#' There can be up to five different conditions. Their names are specified
+#' within the list like \code{Condition_1="name of first condition", ..., Condition_5=...}.
+#' Furthermore, one needs to assign columns of the input table to conditions.
+#' This information is provided within the same parameter list like
+#' \code{1_Columns=c("first column name for condition 1",...), 2_Columns=c(...)}.
+#' 
+#'
 #' @param inputTable    input table with expression data
 #' @param probeType     type of probes
 #' @param species       species of the input track genome
@@ -128,6 +140,17 @@ gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="
 }
 
 #' Runs the workflow \emph{Compute differentially expressed genes using EBarrays}
+#'
+#' This function computes differentially expressed genes using EBarrays.
+#'
+#' A list of column names that make up the control condition is necessary. Furthermore,
+#' there must be at least one more condition in \emph{conditions} list parameter. At most
+#' four conditions (besides the control) can be considered.
+#' Their names are specified within the list like \code{group_2="name of second group", ..., group_5=...}.
+#' Note that there is no \emph{group_1}. Furthermore, one needs to assign columns of the input table to conditions (groups).
+#' This information is provided within the same parameter list like
+#' \code{Columns_group_2=c("first column name for group_2",...), Columns_group_3=c(...)}.
+#'
 #'
 #' @param inputTable     input table with expression data
 #' @param probeType      type of probes
