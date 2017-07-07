@@ -225,7 +225,7 @@ gx.upstreamAnalysisTransfacGeneWays <- function(inputYesSet,inputNoSet,profile,s
                      "End of promoter"                = promoterEnd,
                      "Results folder"                 = resultFolder,
                      "Skip completed"                 = skipCompleted,
-                     "Results folder"                 = resultFolder),
+                     "Results Folder"                 = resultFolder),
                 wait,
                 verbose)
 }
@@ -252,9 +252,8 @@ gx.upstreamAnalysisTransfacTranspath <- function(inputYesSet,inputNoSet,profile,
                      "Species"                        = species,
                      "Start of promoter"              = promoterStart,
                      "End of promoter"                = promoterEnd,
-                     "Results folder"                 = resultFolder,
-                     "Skip completed"                 = skipCompleted,
-                     "Results folder"                 = resultFolder),
+                     "Results Folder"                 = resultFolder,
+                     "Skip completed"                 = skipCompleted),
                 wait,
                 verbose)
 }
@@ -287,7 +286,7 @@ gx.focusedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Ho
                      "Results folder"                 = resultFolder,
                      "Allow big input"                = allowBigInput,
                      "Skip completed"                 = skipCompleted,
-                     "Results folder"                 = resultFolder),
+                     "Result folder"                  = resultFolder),
                 wait,
                 verbose)
 }
@@ -320,7 +319,7 @@ gx.enrichedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (H
                      "Results folder"                 = resultFolder,
                      "Allow big input"                = allowBigInput,
                      "Skip completed"                 = skipCompleted,
-                     "Results folder"                 = resultFolder),
+                     "Result folder"                  = resultFolder),
                 wait,
                 verbose)
 }
