@@ -201,3 +201,62 @@ gx.enrichedTFBSGenes <- function(inputYesSet,inputNoSet,profile,species="Human (
                 verbose)
 }
 
+#' Runs the workflow \emph{Upstream analysis (TRANSFAC(R) and GeneWays)}
+#'
+#' @param inputYesSet   yes/positive/foreground gene set
+#' @param inputNoSet    no/negative/background gene set
+#' @param species       species of the input track genome
+#' @param profile       matrix profile
+#' @param promoterStart first base of a promoter relative to TSS
+#' @param promoterEnd   last base of a promoter relative to TSS
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
+#' @export
+gx.upstreamAnalysisTransfacGeneWays <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",promoterStart=-1000,promoterEnd=100,resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/TRANSFAC/Upstream analysis (TRANSFAC(R) and GeneWays)",
+                list("Input Yes gene set"             = inputYesSet,
+                     "Input No gene set"              = inputNoSet,
+                     "Profile"                        = profile,
+                     "Species"                        = species,
+                     "Start of promoter"              = promoterStart,
+                     "End of promoter"                = promoterEnd,
+                     "Results folder"                 = resultFolder,
+                     "Skip completed"                 = skipCompleted,
+                     "Results folder"                 = resultFolder),
+                wait,
+                verbose)
+}
+
+#' Runs the workflow \emph{Upstream analysis (TRANSFAC(R) and TRANSPATH(R))}
+#'
+#' @param inputYesSet   yes/positive/foreground gene set
+#' @param inputNoSet    no/negative/background gene set
+#' @param species       species of the input track genome
+#' @param profile       matrix profile
+#' @param promoterStart first base of a promoter relative to TSS
+#' @param promoterEnd   last base of a promoter relative to TSS
+#' @param resultFolder  path of result folder
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
+#' @export
+gx.upstreamAnalysisTransfacTranspath <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",promoterStart=-1000,promoterEnd=100,resultFolder,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/TRANSPATH/Upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
+                list("Input Yes gene set"             = inputYesSet,
+                     "Input No gene set"              = inputNoSet,
+                     "Profile"                        = profile,
+                     "Species"                        = species,
+                     "Start of promoter"              = promoterStart,
+                     "End of promoter"                = promoterEnd,
+                     "Results folder"                 = resultFolder,
+                     "Skip completed"                 = skipCompleted,
+                     "Results folder"                 = resultFolder),
+                wait,
+                verbose)
+}
+
+

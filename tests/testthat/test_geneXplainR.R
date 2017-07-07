@@ -365,3 +365,18 @@ test_that("gx.enrichedTFBSGenes", {
               clean.after.test()
         })
 
+test_that("gx.upstreamAnalysisTransfacGeneWays", {
+              before.test.connection()
+              res <- gx.upstreamAnalysisTransfacGeneWays(inputYesSet="test.yes",inputNoSet="test.no",species="test.species",
+                                                         profile="test.profile",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/TRANSFAC/Upstream analysis (TRANSFAC(R) and GeneWays)")
+              clean.after.test()
+        })
+
+test_that("gx.upstreamAnalysisTransfacTranspath", {
+              before.test.connection()
+              res <- gx.upstreamAnalysisTransfacTranspath(inputYesSet="test.yes",inputNoSet="test.no",species="test.species",
+                                                          profile="test.profile",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/TRANSPATH/Upstream analysis (TRANSFAC(R) and TRANSPATH(R))")
+              clean.after.test()
+        })
