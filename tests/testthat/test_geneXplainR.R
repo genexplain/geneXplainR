@@ -380,3 +380,11 @@ test_that("gx.upstreamAnalysisTransfacTranspath", {
               expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/TRANSPATH/Upstream analysis (TRANSFAC(R) and TRANSPATH(R))")
               clean.after.test()
         })
+
+test_that("gx.focusedUpstreamAnalysis", {
+              before.test.connection()
+              res <- gx.focusedUpstreamAnalysis(inputYesSet="test.yes",inputNoSet="test.no",species="test.species",
+                                                profile="test.profile",resultFolder="test.folder",wait=F,verbose=F)
+              expect_equal(as.character(queryJsonArgs$params['de']), "analyses/Workflows/TRANSPATH/Focused upstream analysis (TRANSFAC(R) and TRANSPATH(R))")
+              clean.after.test()
+        })
