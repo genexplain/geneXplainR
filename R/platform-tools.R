@@ -292,3 +292,36 @@ gx.focusedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Ho
                 verbose)
 }
 
+#' Runs the workflow \emph{Enriched upstream analysis (TRANSFAC(R) and TRANSPATH(R))}
+#'
+#' @param inputYesSet   yes/positive/foreground gene set
+#' @param inputNoSet    no/negative/background gene set
+#' @param species       species of the input track genome
+#' @param profile       matrix profile
+#' @param foldEnriched  filter by fold enrichment
+#' @param promoterStart first base of a promoter relative to TSS
+#' @param promoterEnd   last base of a promoter relative to TSS
+#' @param resultFolder  path of result folder
+#' @param allowBigInput set true to allow for large data sets
+#' @param skipCompleted skip already completed steps
+#' @param wait          set true to wait for the analysis to complete
+#' @param verbose       set true for more progress info
+#' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
+#' @export
+gx.enrichedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Homo sapiens)",profile,foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,resultFolder,allowBigInput=F,skipCompleted=T,wait=T,verbose=F) {
+    gx.workflow("analyses/Workflows/TRANSPATH/Enriched upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
+                list("Input Yes gene set"             = inputYesSet,
+                     "Input No gene set"              = inputNoSet,
+                     "Profile"                        = profile,
+                     "Filter by TFBS enrichment fold" = foldEnriched,
+                     "Species"                        = species,
+                     "Start of promoter"              = promoterStart,
+                     "End of promoter"                = promoterEnd,
+                     "Results folder"                 = resultFolder,
+                     "Allow big input"                = allowBigInput,
+                     "Skip completed"                 = skipCompleted,
+                     "Results folder"                 = resultFolder),
+                wait,
+                verbose)
+}
+
