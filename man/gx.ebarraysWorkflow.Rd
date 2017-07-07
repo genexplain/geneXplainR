@@ -31,7 +31,16 @@ gx.ebarraysWorkflow(inputTable, probeType = "Probes: Affymetrix",
 \item{verbose}{set true for more progress info}
 }
 \description{
-Runs the workflow \emph{Compute differentially expressed genes using EBarrays}
+This function computes differentially expressed genes using EBarrays.
+}
+\details{
+A list of column names that make up the control condition is necessary. Furthermore,
+there must be at least one more condition in \emph{conditions} list parameter. At most
+four conditions (besides the control) can be considered.
+Their names are specified within the list like \code{group_2="name of second group", ..., group_5=...}.
+Note that there is no \emph{group_1}. Furthermore, one needs to assign columns of the input table to conditions (groups).
+This information is provided within the same parameter list like
+\code{Columns_group_2=c("first column name for group_2",...), Columns_group_3=c(...)}.
 }
 \keyword{EBarrays}
 \keyword{differential}

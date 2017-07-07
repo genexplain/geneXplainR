@@ -26,7 +26,17 @@ gx.limmaWorkflow(inputTable, probeType = "Probes: Affymetrix",
 \item{verbose}{set true for more progress info}
 }
 \description{
-Runs the workflow \emph{Compute differentially expressed genes using Limma}
+This function computes differentially expressed genes using Limma. Limma
+output tables (one for each condition pair) are located in the result folder
+named after the compared conditions.
+}
+\details{
+The conditions need to be specified in the corresponding list parameter.
+There can be up to five different conditions. Their names are specified
+within the list like \code{Condition_1="name of first condition", ..., Condition_5=...}.
+Furthermore, one needs to assign columns of the input table to conditions.
+This information is provided within the same parameter list like
+\code{1_Columns=c("first column name for condition 1",...), 2_Columns=c(...)}.
 }
 \keyword{differential}
 \keyword{expression,}
