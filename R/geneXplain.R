@@ -55,7 +55,7 @@ gx.createFolder <- function(path, folderName) {
 #'
 #' @param folder folder that contains the item
 #' @param name   name of the item
-#' @return type and values of the response. A type of 0 indicates success.
+#' @return type and value of the response. A type of 0 indicates success.
 #' @export
 gx.delete <- function(folder, name) {
     gx.getConnection()
@@ -102,6 +102,7 @@ gx.ls <- function(path, extended=F) {
 #' @param parameters parameters to configure the analysis
 #' @param wait TRUE to wait for the analysis to complete. Default: TRUE
 #' @param verbose TRUE to see some progress info. Default: TRUE
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis. 
 #' @keywords analysis
 #' @seealso \code{\link{gx.analysis.list}}
 #' @seealso \code{\link{gx.analysis.parameters}}
@@ -118,6 +119,7 @@ gx.analysis <- function(analysisName, parameters=list(), wait=T, verbose=T) {
 #' and their tool group. Tools are organized into thematic groups
 #' like \emph{Data manipulation} or \emph{Site analysis}.
 #'
+#' @return a list containing available analysis tools and their tool group
 #' @keywords analysis, list
 #' @seealso \code{\link{gx.analysis}}
 #' @seealso \code{\link{gx.analysis.parameters}}
