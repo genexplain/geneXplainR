@@ -22,6 +22,7 @@ gx.getInternals <- function() {
 #'
 #' @param name name of the project
 #' @param description a short description of the project
+#' @return a string containing the status of the request in JSON format
 #' @export
 gx.createProject <- function(name, description="New platform project") {
     con <- gx.getConnection()
@@ -34,7 +35,8 @@ gx.createProject <- function(name, description="New platform project") {
 #'
 #' @param path        parent folder in which the new folder is created
 #' @param folderName  name of the new folder 
-#' @export
+#' @return a string containing the status of the request in JSON format
+#' @export 
 gx.createFolder <- function(path, folderName) {
     gx.getConnection()
     params <- list("service" = "access.service",
@@ -53,6 +55,7 @@ gx.createFolder <- function(path, folderName) {
 #'
 #' @param folder folder that contains the item
 #' @param name   name of the item
+#' @return type and values of the response. A type of 0 indicates success.
 #' @export
 gx.delete <- function(folder, name) {
     gx.getConnection()
@@ -73,6 +76,7 @@ gx.delete <- function(folder, name) {
 #'
 #' @param path path of folder to list
 #' @param extended get extended info including data types and whether folders have children
+#' @return a list of contents of specified folder
 #' @keywords ls
 #' @seealso \code{\link[rbiouml]{biouml.ls}}
 #' @export

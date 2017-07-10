@@ -11,6 +11,9 @@ gx.ls(path, extended = F)
 
 \item{extended}{get extended info including data types and whether folders have children}
 }
+\value{
+a list of contents of specified folder
+}
 \description{
 This function returns a list of contents of specified folder.
 Project folders are usually located under \emph{data/Projects}.

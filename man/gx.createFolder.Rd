@@ -11,6 +11,9 @@ gx.createFolder(path, folderName)
 
 \item{folderName}{name of the new folder}
 }
+\value{
+a string containing the status of the request in JSON format
+}
 \description{
 This function creates a new folder within an existing parent folder.
 }
