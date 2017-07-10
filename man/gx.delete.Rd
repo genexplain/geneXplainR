@@ -12,7 +12,7 @@ gx.delete(folder, name)
 \item{name}{name of the item}
 }
 \value{
-type and values of the response. A type of 0 indicates success.
+type and value of the response. A type of 0 indicates success.
 }
 \description{
 This function deletes an item within the workspace. The item may be

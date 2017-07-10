@@ -15,6 +15,9 @@ gx.analysis(analysisName, parameters = list(), wait = T, verbose = T)
 
 \item{verbose}{TRUE to see some progress info. Default: TRUE}
 }
+\value{
+the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
+}
 \description{
 This function invokes an analysis tool with specified parameters.
 }

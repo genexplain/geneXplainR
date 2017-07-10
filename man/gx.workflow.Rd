@@ -15,6 +15,9 @@ gx.workflow(path, parameters = list(), wait = T, verbose = T)
 
 \item{verbose}{switch to get more or less progress info}
 }
+\value{
+the job id of submitted task. The job id can be used to retrieve information about the status of the analysis.
+}
 \description{
 This function invokes a workflow with specified parameters. A workflow
 is identified by its path in the platform workspace, e.g. many workflows are provided

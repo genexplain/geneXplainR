@@ -9,6 +9,9 @@ gx.analysis.parameters(analysisName)
 \arguments{
 \item{analysisName}{name of the analysis tool}
 }
+\value{
+a list with parameter names and descriptions
+}
 \description{
 Returns a list with parameter names and descriptions.
 }

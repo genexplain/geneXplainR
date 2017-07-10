@@ -6,6 +6,9 @@
 \usage{
 gx.analysis.list()
 }
+\value{
+a list containing available analysis tools and their tool group
+}
 \description{
 Returns a list containing the available analysis tools
 and their tool group. Tools are organized into thematic groups

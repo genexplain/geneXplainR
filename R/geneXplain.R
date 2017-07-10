@@ -135,6 +135,7 @@ gx.analysis.list <- function() {
 #' Returns a list with parameter names and descriptions. 
 #'
 #' @param analysisName  name of the analysis tool
+#' @return a list with parameter names and descriptions
 #' @keywords analysis, parameters
 #' @seealso \code{\link{gx.analysis}}
 #' @seealso \code{\link{gx.analysis.list}}
@@ -165,6 +166,7 @@ gx.analysis.parameters <- function(analysisName) {
 #' @param parameters  workflow parameters
 #' @param wait        set true to wait for task to complete
 #' @param verbose     switch to get more or less progress info
+#' @return the job id of submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow
 #' @seealso \code{\link{gx.analysis}}
 #' @seealso \code{\link{gx.ls}}
@@ -186,6 +188,7 @@ gx.workflow <- function(path, parameters=list(), wait=T, verbose=T) {
 #' @param exporter        exporter to use for export
 #' @param exporter.params parameters of the exporter
 #' @param target.file     local file to export to
+#' @return \code{NULL}
 #' @keywords export
 #' @seealso \code{\link{gx.exporters}}
 #' @seealso \code{\link{gx.export.parameters}}

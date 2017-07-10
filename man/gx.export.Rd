@@ -16,6 +16,9 @@ gx.export(path, exporter = "Tab-separated text (*.txt)",
 
 \item{target.file}{local file to export to}
 }
+\value{
+\code{NULL}
+}
 \description{
 This function exports a specified item from the platform workspace
 to a local file.
