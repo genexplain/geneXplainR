@@ -20,6 +20,9 @@ gx.mapGenesToOntologies(inputTable, species = "Human (Homo sapiens)",
 
 \item{verbose}{set true for more progress info}
 }
+\value{
+the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
+}
 \description{
 Runs the workflow \emph{Mapping to ontologies (Gene table)}
 }

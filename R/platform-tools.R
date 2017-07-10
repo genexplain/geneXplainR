@@ -18,7 +18,8 @@
 #' @param output      output path (does not need to exist)
 #' @param simple      set true for circle diameters proportional to group size
 #' @param wait        set true to wait for the analysis to complete
-#' @param verbose     set true for more progress info
+#' @param verbose     set true for more progress info 
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords Venn, diagram
 #' @export
 gx.vennDiagrams <- function(table1Path,table2Path,table3Path="",table1Name="Left",table2Name="Right",table3Name="Middle",output,simple=T,wait=T,verbose=F) {
@@ -40,6 +41,7 @@ gx.vennDiagrams <- function(table1Path,table2Path,table3Path="",table1Name="Left
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, ChIP-seq, classification, target gene
 #' @export
 gx.classifyChipSeqTargets <- function(inputTrack,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -60,6 +62,7 @@ gx.classifyChipSeqTargets <- function(inputTrack,species="Human (Homo sapiens)",
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, classification, ontology, gene, function
 #' @export
 gx.mapGenesToOntologies <- function(inputTable,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -80,6 +83,7 @@ gx.mapGenesToOntologies <- function(inputTable,species="Human (Homo sapiens)",re
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, upstream analysis
 #' @export
 gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -114,6 +118,7 @@ gx.explainMyGenes <- function(inputTable,species="Human (Homo sapiens)",resultFo
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, differential expression, limma
 #' @export
 gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="Human (Homo sapiens)",conditions=list(),resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -162,6 +167,7 @@ gx.limmaWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="
 #' @param skipCompleted  skip already completed steps
 #' @param wait           set true to wait for the analysis to complete
 #' @param verbose        set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, differential expression, EBarrays
 #' @export
 gx.ebarraysWorkflow <- function(inputTable,probeType="Probes: Affymetrix",species="Human (Homo sapiens)",controlName="Control",controlColumns=c(),conditions=list(),resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -205,6 +211,7 @@ gx.ebarraysWorkflow <- function(inputTable,probeType="Probes: Affymetrix",specie
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, 
 #' @export
 gx.enrichedTFBSGenes <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,allowBigInput=F,resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -236,6 +243,7 @@ gx.enrichedTFBSGenes <- function(inputYesSet,inputNoSet,profile,species="Human (
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
 #' @export
 gx.upstreamAnalysisTransfacGeneWays <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",promoterStart=-1000,promoterEnd=100,resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -265,6 +273,7 @@ gx.upstreamAnalysisTransfacGeneWays <- function(inputYesSet,inputNoSet,profile,s
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, upstream analysis, TRANSFAC, TRANSPATH
 #' @export
 gx.upstreamAnalysisTransfacTranspath <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",promoterStart=-1000,promoterEnd=100,resultFolder,skipCompleted=T,wait=T,verbose=F) {
@@ -295,6 +304,7 @@ gx.upstreamAnalysisTransfacTranspath <- function(inputYesSet,inputNoSet,profile,
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
 #' @export
 gx.focusedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Homo sapiens)",profile,foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,resultFolder,allowBigInput=F,skipCompleted=T,wait=T,verbose=F) {
@@ -328,6 +338,7 @@ gx.focusedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Ho
 #' @param skipCompleted skip already completed steps
 #' @param wait          set true to wait for the analysis to complete
 #' @param verbose       set true for more progress info
+#' @return the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
 #' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
 #' @export
 gx.enrichedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Homo sapiens)",profile,foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,resultFolder,allowBigInput=F,skipCompleted=T,wait=T,verbose=F) {

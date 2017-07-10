@@ -29,6 +29,9 @@ gx.vennDiagrams(table1Path, table2Path, table3Path = "",
 
 \item{verbose}{set true for more progress info}
 }
+\value{
+the job id of the submitted task. The job id can be used to retrieve information about the status of the analysis.
+}
 \description{
 Create a Venn diagram for up to three tables.
 }
