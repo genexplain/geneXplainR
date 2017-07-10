@@ -11,6 +11,9 @@ gx.put(path, value)
 
 \item{value}{R object to put into platform}
 }
+\value{
+\code{NULL}
+}
 \description{
 This function stores a data frame in the specified path
 of the platform workspace.

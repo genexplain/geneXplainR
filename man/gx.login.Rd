@@ -14,6 +14,9 @@ gx.login(server = "https://platform.genexplain.com", user = "",
 
 \item{password}{password}
 }
+\value{
+a list with login parameters and session id
+}
 \description{
 Starts a platform session by signing in with specified credentials.
 }

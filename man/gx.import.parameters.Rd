@@ -11,6 +11,9 @@ gx.import.parameters(path, importer)
 
 \item{importer}{importer whose parameters will be shown}
 }
+\value{
+a list with parameter names and description
+}
 \description{
 Given the path to import into, this function returns a list with
 parameter names and description for a selected importer type.

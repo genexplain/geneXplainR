@@ -206,6 +206,7 @@ gx.export <- function(path, exporter="Tab-separated text (*.txt)", exporter.para
 #' Further information about exporters can be obtained in the context
 #' of data items to export using \emph{gx.export.parameters}.
 #'
+#' @return a vector with exporter names
 #' @keywords exporter, list
 #' @seealso \code{\link{gx.export}}
 #' @seealso \code{\link{gx.export.parameters}}
@@ -223,6 +224,7 @@ gx.exporters <- function() {
 #'
 #' @param path     path of the object to export
 #' @param exporter exporter to use for the export
+#' @return a list with parameter names and descriptions
 #' @keywords exporter, parameters
 #' @seealso \code{\link{gx.export}}
 #' @seealso \code{\link{gx.exporters}}
@@ -238,6 +240,7 @@ gx.export.parameters <- function(path, exporter) {
 #' Returns a list containing the specified table.
 #'
 #' @param path  path of object to load into a data.frame
+#' @return a list containing the table
 #' @keywords get
 #' @seealso \code{\link[rbiouml]{biouml.get}}
 #' @export
@@ -253,6 +256,7 @@ gx.get <- function(path) {
 #'
 #' @param path    platform path of new table
 #' @param value   R object to put into platform 
+#' @return \code{NULL} 
 #' @keywords put
 #' @seealso \code{\link[rbiouml]{biouml.put}}
 #' @export
@@ -274,6 +278,7 @@ gx.put <- function(path, value) {
 #' @param parentPath      path of folder to import into
 #' @param importer        importer to use
 #' @param importer.params parameters for specified importer
+#' @return the platform path of the imported item
 #' @keywords import
 #' @seealso \code{\link{gx.importers}}
 #' @seealso \code{\link{gx.import.parameters}}
@@ -290,6 +295,7 @@ gx.import <- function(file, parentPath, importer, importer.params=list()) {
 #' uploads a file to the platform, where it is imported as a
 #' certain data type, e.g. as pathway or molecular network.
 #'
+#' @return a vector with available importers
 #' @keywords importer, list
 #' @seealso \code{\link{gx.import}}
 #' @seealso \code{\link{gx.import.parameters}}
@@ -307,6 +313,7 @@ gx.importers <- function() {
 #'
 #' @param path      path to import to
 #' @param importer  importer whose parameters will be shown
+#' @return a list with parameter names and description
 #' @keywords import, parameters
 #' @seealso \code{\link{gx.import}}
 #' @seealso \code{\link{gx.importers}}
@@ -324,6 +331,7 @@ gx.import.parameters <- function(path, importer) {
 #' @param server   server to connect to
 #' @param user     username
 #' @param password password
+#' @return a list with login parameters and session id
 #' @keywords login
 #' @seealso \code{\link[rbiouml]{biouml.login}}
 #' @export
@@ -335,6 +343,7 @@ gx.login <- function(server='https://platform.genexplain.com', user='', password
 #' 
 #' Signs out of a platform session.
 #'
+#' @return \code{NULL}
 #' @keywords logout
 #' @seealso \code{\link[rbiouml]{biouml.logout}}
 #' @export
@@ -350,6 +359,7 @@ gx.logout <- function() {
 #' \code{wait=F}.
 #'
 #' @param jobID  id of the platform task
+#' @return a list with status info, response type of the job, the requested result and the analysis log
 #' @keywords job, info
 #' @seealso \code{\link[rbiouml]{biouml.job.info}}
 #' @export

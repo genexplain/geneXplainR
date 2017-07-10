@@ -6,6 +6,9 @@
 \usage{
 gx.importers()
 }
+\value{
+a vector with available importers
+}
 \description{
 Returns a vector with available importer names. An importer
 uploads a file to the platform, where it is imported as a

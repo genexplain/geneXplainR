@@ -6,6 +6,9 @@
 \usage{
 gx.exporters()
 }
+\value{
+a vector with exporter names
+}
 \description{
 Returns a vector with exporter names. An exporter transfers an item
 from the platform workspace to a local file in a certain format.

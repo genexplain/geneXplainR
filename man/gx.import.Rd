@@ -15,6 +15,9 @@ gx.import(file, parentPath, importer, importer.params = list())
 
 \item{importer.params}{parameters for specified importer}
 }
+\value{
+the platform path of the imported item
+}
 \description{
 This function uploads a file into the platform using 
 the specified importer configured by its

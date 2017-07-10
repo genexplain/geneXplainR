@@ -11,6 +11,9 @@ gx.export.parameters(path, exporter)
 
 \item{exporter}{exporter to use for the export}
 }
+\value{
+a list with parameter names and descriptions
+}
 \description{
 Given the path of an item to export, this function shows the
 parameters for a selected exporter.

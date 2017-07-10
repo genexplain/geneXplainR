@@ -9,6 +9,9 @@ gx.get(path)
 \arguments{
 \item{path}{path of object to load into a data.frame}
 }
+\value{
+a list containing the table
+}
 \description{
 Returns a list containing the specified table.
 }

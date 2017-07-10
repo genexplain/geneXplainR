@@ -9,6 +9,9 @@ gx.job.info(jobID)
 \arguments{
 \item{jobID}{id of the platform task}
 }
+\value{
+a list with status info, response type of the job, the requested result and the analysis log
+}
 \description{
 This function retrieves status information for a task running
 on the platform. A common use case is to check the status of

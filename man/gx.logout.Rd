@@ -6,6 +6,9 @@
 \usage{
 gx.logout()
 }
+\value{
+\code{NULL}
+}
 \description{
 Signs out of a platform session.
 }
