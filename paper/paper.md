@@ -32,13 +32,35 @@ platform is well-known for its upstream analysis [@upstreamAnalysis], that has
 been developed to identify causal signalling molecules on the basis of experimental
 data like expression measurements. An important feature of the toolbox is the
 possibility to define and execute workflows that can implement sequential and
-parallel multi-step analysis processes. Figure 1 shows the graphical user interface of
-the platform with an example workflow.
+parallel multi-step analysis processes.  Workflows can be created and edited using 
+a graphical editor. They are an effective tool to define complex analysis pipelines
+and to document, reuse and to reproduce analysis procedures. Figure 1 shows the 
+graphical user interface of the platform with an example workflow for Flux Balance Analysis.
 
-![](workflow.png)
+![A workflow in the geneXplain platform](workflow.png)
 *Figure 1. Graphical user interface of the geneXplain platform showing the Flux Balance Analysis workflow.*
 
+We have developed geneXplainR, an R [@R] interface for the geneXplain platform, that
+makes it possible to define analysis pipelines in the R language that
+use tools, workflows and other resources integrated in the platform. The package
+is based on and extends the rbiouml package [@rbiouml]. The geneXplainR adds basic 
+functionality not covered by rbiouml such as creation of projects, folders 
+or deletion of items from the workspace as well as functions that provide 
+direct access to certain tools or workflows. Another purpose of geneXplainR is
+to offer a suite of examples scripts in the *example* branch that help users
+to get started with the software. We have also developed a similar project denoted as
+the *genexplain-api* [@genexJava] that addresses the Java programming language and
+shall be described elsewhere.
 
-\newpage
+
+## Acknowledgements
+
+The development of geneXplainR has been supported by the MyPathSem,
+a collaborative project funded by the German Federal Ministry of Education 
+and Research (BMBF) in the funding program “i:DSem – Integrative Datensemantik
+in der Systemmedizin”, as well as by MIMOmics, a collaborative project funded 
+by the European Union Seventh Framework Programme (FP7/2007-2013) under grant
+agreement no. 305280, research area FP7-HEALTH-2012-INNOVATION-1, topic 
+HEALTH.2012.2.1.1-3: Statistical methods for collection and analysis of –omics data.
 
 # References
