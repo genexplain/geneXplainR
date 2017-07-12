@@ -20,17 +20,23 @@ affiliations:
     index: 1
   - name: "Institute of Bioinformatics, University Medical Center Göttingen, D-37077 Göttingen, Germany"
     index: 2
-date: "05 July 2017"
+date: "12 July 2017"
 bibliography: paper.bib
 ---
 
 ## Summary
 
+The geneXplain platform [@genexplain] is an online toolbox and workflow management
+system for a broad range of bioinformatic and systems biology applications. The 
+platform is well-known for its upstream analysis [@upstreamAnalysis], that has 
+been developed to identify causal signalling molecules on the basis of experimental
+data like expression measurements. An important feature of the toolbox is the
+possibility to define and execute workflows that can implement sequential and
+parallel multi-step analysis processes. Figure 1 shows the graphical user interface of
+the platform with an example workflow.
 
----
-
-## General workflow
-
+![](workflow.png)
+*Figure 1. Graphical user interface of the geneXplain platform showing the Flux Balance Analysis workflow.*
 
 
 \newpage
