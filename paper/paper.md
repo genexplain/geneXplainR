@@ -41,8 +41,8 @@ graphical user interface of the platform with an example workflow for Flux Balan
 *Figure 1. Graphical user interface of the geneXplain platform showing the Flux Balance Analysis workflow.*
 
 We have developed geneXplainR, an R [@R] interface for the geneXplain platform, that
-makes it possible to define analysis pipelines in the R language that
-use tools, workflows and other resources integrated in the platform. The package
+makes it possible to define analysis pipelines in the R language using
+tools, workflows and other resources integrated in the platform. The package
 is based on and extends the rbiouml package [@rbiouml]. The geneXplainR adds basic 
 functionality not covered by rbiouml such as creation of projects, folders 
 or deletion of items from the workspace as well as functions that provide 
