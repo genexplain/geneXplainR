@@ -49,7 +49,7 @@ or deletion of items from the workspace as well as functions that provide
 direct access to certain tools or workflows. Another purpose of geneXplainR is
 to offer a suite of examples scripts in the *example* branch that help users
 to get started with the software. We have also developed a similar project denoted as
-the *genexplain-api* [@genexJava] that addresses the Java programming language and
+the *genexplain-api* [@genexJava] that addresses Java developers and
 shall be described elsewhere.
 
 
