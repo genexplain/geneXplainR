@@ -1,5 +1,5 @@
 Package: geneXplainR
-Title: R interface for the geneXplain platform
+Title: An R interface for the geneXplain platform
 Version: 0.4
 Date: 2017-01-01
 Authors@R: c(person("Philip", "Stegmaier", email = "philip.stegmaier@genexplain.com", role = c("aut", "cre")))

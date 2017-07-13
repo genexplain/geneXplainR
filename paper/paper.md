@@ -1,5 +1,5 @@
 ---
-title: "geneXplainR"
+title: "geneXplainR - an R interface for the geneXplain platform"
 tags:
   - "R"
   - "Bioinformatics"
