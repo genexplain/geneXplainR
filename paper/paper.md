@@ -50,8 +50,9 @@ direct access to certain tools or workflows. Another purpose of geneXplainR is
 to offer a suite of examples scripts in the *example* branch that help users
 to get started with the software. We have also developed a similar project denoted as
 the *genexplain-api* [@genexJava] that addresses Java developers and
-shall be described elsewhere.
-
+shall be described elsewhere. With geneXplainR, developers can easily take advantage
+of other bioinformatics software and resources available in R, e.g. through
+the popular Bioconductor project [@bioconductor].
 
 ## Acknowledgements
 
