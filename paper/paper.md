@@ -30,12 +30,26 @@ The geneXplain platform [@genexplain] is an online toolbox and workflow manageme
 system for a broad range of bioinformatic and systems biology applications. The 
 platform is well-known for its upstream analysis [@upstreamAnalysis], that has 
 been developed to identify causal signalling molecules on the basis of experimental
-data like expression measurements. An important feature of the toolbox is the
-possibility to define and execute workflows that can implement sequential and
-parallel multi-step analysis processes.  Workflows can be created and edited using 
-a graphical editor. They are an effective tool to define complex analysis pipelines
-and to document, reuse and to reproduce analysis procedures. Figure 1 shows the 
-graphical user interface of the platform with an example workflow for Flux Balance Analysis.
+data like expression measurements. Methods integrated into the system integrates include
+
+- molecular network analysis such as pathway enrichment, identification of network 
+clusters, common signaling regulators or effectors, 
+- analysis of transcription factor binding sites like prediction of binding sites using
+positional weight matrices, testing for enrichment of binding sites in regulatory sequences,
+or identification of composite modules (combinations of binding sites), as well as
+motif finding
+- methods to test for enrichment of functional groups or categories, e.g. from the Gene Ontology [@GO],
+using the Fisher test or Gene Set Enrichment Analysis (GSEA) [@GSEA]
+- Flux Balance Analysis [@FBA] to analyze metabolic networks
+- methods for processing and statistical analysis of high-throughput data, e.g. Limma [@limma] or DESeq2 [@deseq]
+- as well as simulation of computational models, e.g. as collected in the BioModels database [@biomodels].
+
+An important feature of the platform is the possibility to define and execute workflows 
+that can implement sequential and parallel multi-step analysis processes. Workflows 
+can be created and edited using a graphical editor. They are an effective tool to 
+define complex analysis pipelines and to document, reuse and to reproduce analysis
+procedures. Figure 1 shows the graphical user interface of the platform with an example
+workflow for Flux Balance Analysis.
 
 ![A workflow in the geneXplain platform](workflow.png)
 *Figure 1. Graphical user interface of the geneXplain platform showing the Flux Balance Analysis workflow.*
