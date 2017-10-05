@@ -70,10 +70,17 @@ look like this:
 gx.login()
 
 ## Example data sets can be found under 'data/Examples'. Here we use a set of upregulated genes.
-my_data <- "data/Examples/TNF-stimulation of HUVECs GSE2639, Affymetrix HG-U133A microarray/Data/DEGs with limma/Normalized (RMA) DEGs with limma/Condition_1 vs. Condition_2/Up-regulated genes Ensembl"
+my_data <- paste0("data/Examples/TNF-stimulation of HUVECs GSE2639, ",
+                  "Affymetrix HG-U133A microarray/Data/DEGs with limma/",
+                  "Normalized (RMA) DEGs with limma/Condition_1 vs. Condition_2/",
+                  "Up-regulated genes Ensembl")
 
-## This will be the path to the result table. It will be put into the 'Demo project' provided in this workspace.
-my_result <- paste0("data/Projects/Demo project/Data/","my_demo_result_",Sys.Date(),"_",floor(runif(1, 1, 10^12)))
+## This will be the path to the result table. It will be put into the 'Demo project' provided
+##  in this workspace.
+my_result <- paste0("data/Projects/Demo project/Data/",
+                    "my_demo_result_",
+                    Sys.Date(),"_",
+                    floor(runif(1, 1, 10^12)))
 
 ## This invokes the functional classification analysis according
 ## to the Gene Ontology.
