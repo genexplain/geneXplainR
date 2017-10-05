@@ -13,6 +13,7 @@ gx.getInternals <- function() {
     gx.imp
 }
 
+connectionAttempts = 3
 
 #' Create a new project
 #'
@@ -370,7 +371,24 @@ gx.job.info <- function(jobID) {
 
 gx.job.wait <- function(jobID, verbose=T) {
     gx.getConnection()
-    rbiouml::biouml.job.wait(jobID, verbose)
+    resp   = ""
+    conAtt = 0
+    ok     = F
+    while (ok == F & conAtt <= connectionAttempts) {
+        conAtt = conAtt+1
+        tryCatch({
+            resp <- rbiouml::biouml.job.wait(jobID, verbose)
+        }, warning = function(w) {
+            if (verbose) {
+                print(w)
+            }
+        }, error = function(e) {
+            print(e)
+            next
+        })
+        ok = T
+    }
+    resp
 }
 
 gx.getConnection <- function() { 
