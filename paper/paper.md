@@ -30,7 +30,7 @@ The geneXplain platform [@genexplain] is an online toolbox and workflow manageme
 system for a broad range of bioinformatic and systems biology applications. The 
 platform is well-known for its upstream analysis [@upstreamAnalysis], that has 
 been developed to identify causal signalling molecules on the basis of experimental
-data like expression measurements. Methods integrated into the system integrates include
+data like expression measurements. Methods integrated into the system include
 
 - molecular network analysis such as pathway enrichment, identification of network 
 clusters, common signaling regulators or effectors, 
