@@ -34,7 +34,7 @@ A script using geneXplain may look like this (please note that shown parameters 
 
 ```R
 library(geneXplainR)
-gx.login("https://platform.genexplain.com/bioumlweb","user","password"),
+gx.login("https://platform.genexplain.com","user","password")
 
 # Get a listing of your research projects
 gx.ls("data/Projects")
