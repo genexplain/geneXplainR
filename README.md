@@ -50,6 +50,11 @@ provides a demo workspace, you can call *gx.login* with the server URL as only a
 
 For information about geneXplainR, please refer to the vignettes that come with this package. Furthermore, the *examples* branch of this repository contains a number of examples.
 
+# Support
+
+If you find an issue, we would be happy if you let us know either by writing an e-mail
+to [geneXplain](mailto:info@genexplain.com?subject=geneXplainR issue) or to the [GitHub issue system](https://github.com/genexplain/geneXplainR/issues).
+
 # References
 
 1. Kel, A., Kolpakov, F., Poroikov, V., Selivanova, G. (2011) GeneXplain — Identification of Causal Biomarkers and Drug Targets in Personalized Cancer Pathways. J. Biomol. Tech. 22(suppl.), S1
