@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/genexplain/geneXplainR.svg?branch=master)](https://travis-ci.org/genexplain/geneXplainR)
 [![codecov](https://codecov.io/gh/genexplain/geneXplainR/branch/master/graph/badge.svg)](https://codecov.io/gh/genexplain/geneXplainR)
+[![status](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12/status.svg)](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12)
 
 # geneXplainR
 
