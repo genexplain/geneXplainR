@@ -53,7 +53,7 @@ For information about geneXplainR, please refer to the vignettes that come with 
 # Support
 
 If you find an issue, we would be happy if you let us know either by writing an e-mail
-to [geneXplain](mailto:info@genexplain.com?subject=geneXplainR issue) or to the [GitHub issue system](https://github.com/genexplain/geneXplainR/issues).
+to [geneXplain](mailto:info@genexplain.com?subject=geneXplainR%20issue) or to the [GitHub issue system](https://github.com/genexplain/geneXplainR/issues).
 
 # References
 
