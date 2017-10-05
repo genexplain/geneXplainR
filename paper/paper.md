@@ -80,7 +80,7 @@ HEALTH.2012.2.1.1-3: Statistical methods for collection and analysis of –omics
 
 ## Support
 
-If you find an issue, we would be happy if you let us know either by writing an e-mail
-to <info@genexplain.com> or to the GitHub issue system (<https://github.com/genexplain/geneXplainR/issues>).
+Issue reports and support requests are welcome either by writing an e-mail
+to <info@genexplain.com> or through the GitHub issue system (<https://github.com/genexplain/geneXplainR/issues>).
 
 # References
