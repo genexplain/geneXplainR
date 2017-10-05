@@ -40,8 +40,11 @@ gx.login("https://platform.genexplain.com/bioumlweb","user","password"),
 gx.ls("data/Projects")
 ```
 
-Login requires valid user name and password which can be obtained for free on the
+Login to a personal platform workspace requires valid user name and password which can be obtained for free on the
 [geneXplain website](http://genexplain.com/genexplain-platform-registration/).
+If you just wish to try out the functionality of geneXplainR, you can sign into the demo account on our
+public server *platform.genexplain.com* by simply calling *gx.login()*, without parameters. To access another server that
+provides a demo workspace, you can call *gx.login* with the server URL as only argument.
 
 # Documentation and examples
 
