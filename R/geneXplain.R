@@ -397,3 +397,34 @@ gx.getConnection <- function() {
         stop("Not signed into platform, please login first using gx.login()")
     cnx
 }
+                               
+#' Finds out if a function exists
+#'
+#' This function finds out whether a function exists within the geneXplainR package or not.
+#'
+#' @param name       name of a possible function
+#' @keyword        exist, function
+#' @export
+gx.exists <- function(name) {
+  conI <- exists(name, where="package:geneXplainR", mode="function")
+  gx.name <- paste0("gx.",name)
+  conII <- exists(gx.name, where="package:geneXplainR", mode="function")
+  if (conI | conII){
+    cat("TRUE")
+  } else {
+    cat("FALSE")
+  }
+}
+
+#' Finds out if an item is part of a folder
+#'
+#' This function checks whether an item exists in a certain path. 
+#'
+#' @param path        platform path
+#' @param name        name of the item
+#' @keyword           isElement, exist, item, path
+#' @export
+gx.isElement <- function(path, name) {
+  list <- gx.ls(path)
+  is.element(name, list)
+}
