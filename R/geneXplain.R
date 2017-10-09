@@ -425,6 +425,6 @@ gx.exists <- function(name) {
 #' @keyword           isElement, exist, item, path
 #' @export
 gx.isElement <- function(path, name) {
-  list <- gx.ls(path)
-  is.element(name, list)
+  elist <- gx.ls(path)
+  is.element(name, elist)
 }
