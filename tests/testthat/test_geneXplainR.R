@@ -19,7 +19,7 @@ queryArgs     <<- list()
 queryJsonArgs <<- list()
 
 defaultQueryValue <<- "{\"type\":0,\"values\":\"\"}"
-iioumlQueryValue  <<- defaultQueryValue
+bioumlQueryValue  <<- defaultQueryValue
 
 queryJSONValue   <<- function(simplify=T, reconnect=T) {
     fromJSON(bioumlQueryValue, simplify=simplify, asText=T)
@@ -404,9 +404,4 @@ test_that("gx.exists",{
   expect_output(gx.exists("42"),"FALSE")
 })
 
-test_that("gx.isElement",{
-  expect_true(gx.isElement("databases/GeneWays", "Data"))
-  expect_false(gx.isElement("databases/GeneWays", "42"))
-  expect_error(gx.isElement("databases/Genes", "Data"))
-})
 
