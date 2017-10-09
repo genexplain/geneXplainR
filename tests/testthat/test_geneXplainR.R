@@ -398,3 +398,15 @@ test_that("gx.enrichedUpstreamAnalysis", {
               clean.after.test()
         })
 
+test_that("gx.exists",{
+  expect_output(gx.exists("gx.put"), "TRUE")
+  expect_output(gx.exists("put"),"TRUE")
+  expect_output(gx.exists("42"),"FALSE")
+})
+
+test_that("gx.isElement",{
+  expect_true(gx.isElement("databases/GeneWays", "Data"))
+  expect_false(gx.isElement("databases/GeneWays", "42"))
+  expect_error(gx.isElement("databases/Genes", "Data"))
+})
+
