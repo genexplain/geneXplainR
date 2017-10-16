@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/genexplain/geneXplainR.svg?branch=master)](https://travis-ci.org/genexplain/geneXplainR)
 [![codecov](https://codecov.io/gh/genexplain/geneXplainR/branch/master/graph/badge.svg)](https://codecov.io/gh/genexplain/geneXplainR)
 [![status](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12/status.svg)](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1013318.svg)](https://doi.org/10.5281/zenodo.1013318)
 
 # geneXplainR
 
