@@ -6,9 +6,12 @@
 # Please see license that accompanies this software.
 #############################################################
 
+#' @import utils
+#' @import RCurl
+
 
 gx.getInternals <- function() {
-    .internals <- c("biouml.query", "queryJSON")
+    .internals <- c("biouml.query", "queryJSON", "next.job.id")
     gx.imp <- structure(mapply(function(.internals,i) getFromNamespace(i,"rbiouml"),.internals,.internals),class=c("internal"))
     gx.imp
 }
@@ -27,7 +30,8 @@ gx.getInternals <- function() {
 gx.createProject <- function(name, description="New platform project") {
     con <- gx.getConnection()
     gx.imp <- gx.getInternals()
-    gx.imp$biouml.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description)) }
+    gx.imp$biouml.query("/support/createProjectWithPermission", params=list(user=con$user, pass=con$pass, project=name, description=description)) 
+}
 
 #' Create a folder
 #'
@@ -65,6 +69,64 @@ gx.delete <- function(folder, name) {
                    "de" =  name)
     gx.imp <- gx.getInternals()
     gx.imp$queryJSON("/web/data", params)
+}
+
+#' Import a table from a text file
+#'
+#' This function imports a table into an existing platform folder.
+#'
+#' @param tableFile       path to file with the table
+#' @param platformFolder  folder into which the table is imported
+#' @param tableName       name for the table within the platform
+#' @param delim           column delimiter, one of the strings (Tab, Spaces, Commas, Pipes)
+#' @param processQuotes   true to process quotation marks
+#' @param headerRow       row index of the table header
+#' @param dataRow         row index of the first data row
+#' @param commentString   string to recognize comment lines
+#' @param columnForID     name of column with ids
+#' @param addSuffix       true to add suffix to ensure unique ids
+#' @param tableType       type of platform table, e.g. Genes: Ensembl
+#' @param species         Latin name of species
+#' @return a string containing the status of the request in JSON format
+#' @export 
+gx.importTable <- function(tableFile, platformFolder, tableName = "imported_table", processQuotes = TRUE, 
+						   delim = 'Tab', headerRow = 1, dataRow = 2, commentString = "", columnForID = "",
+						   addSuffix = FALSE, tableType = "", species = "Unspecified") {
+    gx.getConnection()
+    gx.imp <- gx.getInternals()
+	fileID <- gx.imp$next.job.id();
+    jobID <- gx.imp$next.job.id();
+    params <- list(fileID=fileID, file=fileUpload(tableFile))
+    gx.imp$biouml.query("/web/upload", params=params)
+	if (length(tableName) == 0) {
+		tableName = basename(tableFile)
+	}
+	delimiterType = 0
+	if (delim == "Spaces") {
+		delimiterType = 1
+	} else if (delim == "Commas") {
+		delimiterType = 2
+	} else if (delim == "Pipes") {
+		delimiterType = 3
+	}
+	pq = "true"
+	if (processQuotes == FALSE) {
+		pq = "false"
+	}
+	sf = "false"
+	if (addSuffix == TRUE) {
+		sf = "true"
+	}
+	json <- paste0("[\n {\"name\": \"tableName\",\n\"value\": \"",tableName,"\"},\n {\"name\": \"delimiterType\",\n\"value\": \"",delimiterType,"\"},{\"name\": \"processQuotes\",\n \"value\": ",pq,"},{\"name\": \"headerRow\",\n \"value\": \"",headerRow,"\"},{\"name\": \"dataRow\",\n \"value\": \"",dataRow,"\"},{\"name\": \"commentString\",\"value\": \"",commentString,"\"},\n {\"name\": \"columnForID\",\"value\": \"",columnForID,"\"},\n {\"name\": \"addSuffix\",\"value\": ",sf,"},\n {\"name\": \"tableType\",\"value\": \"",tableType,"\"},\n {\"name\": \"species\",\"value\": \"",species,"\"}\n]")
+	params <- list(de=platformFolder,
+				   format="Tabular (*.txt, *.xls, *.tab, etc.)",
+				   fileID=fileID,
+				   jobID=jobID,
+				   json=json,
+				   type="import"
+			  )
+	resp <- gx.imp$biouml.query("/web/import", params=params)
+	resp
 }
 
 #' List contents of platform folder

@@ -265,9 +265,9 @@ test_that("gx.put", {
             expect_equal(as.character(data[[1]][1]),"Gene 1")
             expect_equal(as.character(data[[1]][2]),"Gene 2")
             expect_equal(as.character(data[[1]][3]),"Gene 3")
-            expect_equal(data[[2]][1],1)
-            expect_equal(data[[2]][2],2)
-            expect_equal(data[[2]][3],3)
+            expect_equal(as.numeric(data[[2]][1]),1)
+            expect_equal(as.numeric(data[[2]][2]),2)
+            expect_equal(as.numeric(data[[2]][3]),3)
             clean.after.test()
         })
 
