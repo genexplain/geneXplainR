@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/genexplain/geneXplainR.svg?branch=master)](https://travis-ci.org/genexplain/geneXplainR)
 [![codecov](https://codecov.io/gh/genexplain/geneXplainR/branch/master/graph/badge.svg)](https://codecov.io/gh/genexplain/geneXplainR)
+[![status](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12/status.svg)](http://joss.theoj.org/papers/f9e01bf1a9649a3ab078215c81bb6f12)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1013318.svg)](https://doi.org/10.5281/zenodo.1013318)
 
 # geneXplainR
 
@@ -34,18 +36,26 @@ A script using geneXplain may look like this (please note that shown parameters 
 
 ```R
 library(geneXplainR)
-gx.login("http://genexample.com/bioumlweb","user","password"),
+gx.login("https://platform.genexplain.com","user","password")
 
 # Get a listing of your research projects
 gx.ls("data/Projects")
 ```
 
-Login requires valid user name and password which can be obtained for free on the
+Login to a personal platform workspace requires valid user name and password which can be obtained for free on the
 [geneXplain website](http://genexplain.com/genexplain-platform-registration/).
+If you just wish to try out the functionality of geneXplainR, you can sign into the demo account on our
+public server *platform.genexplain.com* by simply calling *gx.login()*, without parameters. To access another server that
+provides a demo workspace, you can call *gx.login* with the server URL as only argument.
 
 # Documentation and examples
 
 For information about geneXplainR, please refer to the vignettes that come with this package. Furthermore, the *examples* branch of this repository contains a number of examples.
+
+# Support
+
+If you find an issue, we would be happy if you let us know either by writing an e-mail
+to [geneXplain](mailto:info@genexplain.com?subject=geneXplainR%20issue) or to the [GitHub issue system](https://github.com/genexplain/geneXplainR/issues).
 
 # References
 

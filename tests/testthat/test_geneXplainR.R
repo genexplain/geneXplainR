@@ -19,7 +19,7 @@ queryArgs     <<- list()
 queryJsonArgs <<- list()
 
 defaultQueryValue <<- "{\"type\":0,\"values\":\"\"}"
-iioumlQueryValue  <<- defaultQueryValue
+bioumlQueryValue  <<- defaultQueryValue
 
 queryJSONValue   <<- function(simplify=T, reconnect=T) {
     fromJSON(bioumlQueryValue, simplify=simplify, asText=T)
@@ -398,3 +398,18 @@ test_that("gx.enrichedUpstreamAnalysis", {
               clean.after.test()
         })
 
+test_that("gx.exists",{
+              expect_output(gx.exists("gx.put"), "TRUE")
+              expect_output(gx.exists("put"),"TRUE")
+              expect_output(gx.exists("42"),"FALSE")
+})
+
+test_that("gx.isElement",{
+              before.test.connection()
+              bioumlQueryValue <<- "{\"type\":0,\"values\":\"{\\\"names\\\":[{\\\"name\\\":\\\"Data\\\"},{\\\"name\\\":\\\"More\\\"}]}\"}"
+              expect_true(gx.isElement("test.folder", "Data"))
+              expect_false(gx.isElement("test.folder", "42"))
+              expect_true(gx.isElement("test.folder", "More"))
+              expect_equal(as.character(queryJsonArgs$params['dc']), "test.folder")
+              clean.after.test()
+})

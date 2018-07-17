@@ -30,7 +30,7 @@ The geneXplain platform [@genexplain] is an online toolbox and workflow manageme
 system for a broad range of bioinformatic and systems biology applications. The 
 platform is well-known for its upstream analysis [@upstreamAnalysis], that has 
 been developed to identify causal signalling molecules on the basis of experimental
-data like expression measurements. Methods integrated into the system integrates include
+data like expression measurements. Methods integrated into the system include
 
 - molecular network analysis such as pathway enrichment, identification of network 
 clusters, common signaling regulators or effectors, 
@@ -77,5 +77,10 @@ in der Systemmedizin”, as well as by MIMOmics, a collaborative project funded
 by the European Union Seventh Framework Programme (FP7/2007-2013) under grant
 agreement no. 305280, research area FP7-HEALTH-2012-INNOVATION-1, topic 
 HEALTH.2012.2.1.1-3: Statistical methods for collection and analysis of –omics data.
+
+## Support
+
+Issue reports and support requests are welcome either by writing an e-mail
+to <info@genexplain.com> or through the GitHub issue system (<https://github.com/genexplain/geneXplainR/issues>).
 
 # References

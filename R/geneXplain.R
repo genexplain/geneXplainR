@@ -16,6 +16,7 @@ gx.getInternals <- function() {
     gx.imp
 }
 
+connectionAttempts = 3
 
 #' Create a new project
 #'
@@ -432,7 +433,24 @@ gx.job.info <- function(jobID) {
 
 gx.job.wait <- function(jobID, verbose=T) {
     gx.getConnection()
-    rbiouml::biouml.job.wait(jobID, verbose)
+    resp   = ""
+    conAtt = 0
+    ok     = F
+    while (ok == F & conAtt <= connectionAttempts) {
+        conAtt = conAtt+1
+        tryCatch({
+            resp <- rbiouml::biouml.job.wait(jobID, verbose)
+        }, warning = function(w) {
+            if (verbose) {
+                print(w)
+            }
+        }, error = function(e) {
+            print(e)
+            next
+        })
+        ok = T
+    }
+    resp
 }
 
 gx.getConnection <- function() { 
@@ -440,4 +458,35 @@ gx.getConnection <- function() {
     if(is.null(cnx))
         stop("Not signed into platform, please login first using gx.login()")
     cnx
+}
+                               
+#' Finds out if a function exists
+#'
+#' This function finds out whether a function exists within the geneXplainR package or not.
+#'
+#' @param name       name of a possible function
+#' @keyword        exist, function
+#' @export
+gx.exists <- function(name) {
+  conI <- exists(name, where="package:geneXplainR", mode="function")
+  gx.name <- paste0("gx.",name)
+  conII <- exists(gx.name, where="package:geneXplainR", mode="function")
+  if (conI | conII){
+    cat("TRUE")
+  } else {
+    cat("FALSE")
+  }
+}
+
+#' Finds out if an item is part of a folder
+#'
+#' This function checks whether an item exists in a certain path. 
+#'
+#' @param path        platform path
+#' @param name        name of the item
+#' @keyword           isElement, exist, item, path
+#' @export
+gx.isElement <- function(path, name) {
+  elist <- gx.ls(path)
+  is.element(name, elist)
 }
