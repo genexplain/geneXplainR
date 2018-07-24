@@ -465,7 +465,7 @@ gx.getConnection <- function() {
 #' This function finds out whether a function exists within the geneXplainR package or not.
 #'
 #' @param name       name of a possible function
-#' @keyword        exist, function
+#' @keywords         exist, function
 #' @export
 gx.exists <- function(name) {
   conI <- exists(name, where="package:geneXplainR", mode="function")
@@ -484,7 +484,7 @@ gx.exists <- function(name) {
 #'
 #' @param path        platform path
 #' @param name        name of the item
-#' @keyword           isElement, exist, item, path
+#' @keywords          isElement, exist, item, path
 #' @export
 gx.isElement <- function(path, name) {
   elist <- gx.ls(path)

@@ -413,3 +413,10 @@ test_that("gx.isElement",{
               expect_equal(as.character(queryJsonArgs$params['dc']), "test.folder")
               clean.after.test()
 })
+
+test_that("gx.importTable",{
+              before.test.connection()
+              res <- gx.importTable("test_input_file.txt", "test.folder", "test.table.name", TRUE, "Tab", tableType="Genes: Ensembl", species="Homo sapiens")
+              print(res)
+              clean.after.test()
+})
