@@ -1,7 +1,7 @@
 Package: geneXplainR
 Title: An R interface for the geneXplain platform
-Version: 0.5
-Date: 2017-01-01
+Version: 0.8
+Date: 2018-09-03
 Authors@R: c(person("Philip", "Stegmaier", email = "philip.stegmaier@genexplain.com", role = c("aut", "cre")))
 Description: Access to personal workspace, analysis tools and workflows in the geneXplain platform.
 Depends: R (>= 3.3)
@@ -9,10 +9,10 @@ Imports: rbiouml, RCurl
 Suggests: testthat, knitr, rmarkdown
 License: MIT + file LICENSE
 Maintainer: Philip Stegmaier <philip.stegmaier@genexplain.com>
-Author:     Philip Stegmaier <philip.stegmaier@genexplain.com>
+Author: Philip Stegmaier <philip.stegmaier@genexplain.com>
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/genexplain/geneXplainR
 VignetteBuilder: knitr
 BugReports: https://github.com/genexplain/geneXplainR
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0

@@ -4,8 +4,8 @@
 \alias{gx.explainMyGenes}
 \title{Runs the workflow \emph{Explain my genes}}
 \usage{
-gx.explainMyGenes(inputTable, species = "Human (Homo sapiens)", resultFolder,
-  skipCompleted = T, wait = T, verbose = F)
+gx.explainMyGenes(inputTable, species = "Human (Homo sapiens)",
+  resultFolder, skipCompleted = T, wait = T, verbose = F)
 }
 \arguments{
 \item{inputTable}{input table with gene ids}

@@ -18,6 +18,160 @@ gx.getInternals <- function() {
 
 connectionAttempts = 3
 
+#' Regulator search
+#'
+#' Searches for signal transduction regulators of input proteins
+#'
+#' @param sourcePath          Path of table with input protein/molecule set
+#' @param weightColumn        Name of column in input table with weights (optional)
+#' @param limitInputSize      True to take only the first N inputs
+#' @param inputSizeLimit      Number of inputs to use from input table
+#' @param maxRadius           Max. number of reactions/interactions to connect inputs to regulators
+#' @param scoreCutoff         Cutoff for regulator score
+#' @param bioHub              Molecular network database to use
+#' @param species             Species whose network shall be analyzed
+#' @param calculateFdr        True to create random inputs for Z-score calculation
+#' @param fdrCutoff           Cutoff to consider regulators significant
+#' @param zscoreCutoff        Cutoff for Z-score
+#' @param penalty             Penalty for non-input hits in regulator network
+#' @param isoformFactor       Normalize multi-forms
+#' @param contextDecorators   List of lists with context decorator parameters like list('A'=list(table='table path', column='column name', 'decay'=<value>), list(), ...)
+#' @param removeNodeDecorators List of table paths specifying nodes to remove
+#' @param outputTable         Path to store analysis results
+#' @param wait                True to wait for job to complete
+#' @param verbose             True for more progress info
+#' @return  a string containing the status of the request in JSON format
+#' @export
+gx.searchRegulators <- function(sourcePath, weightColumn, limitInputSize = FALSE, inputSizeLimit = 1000, maxRadius = 5, scoreCutoff = 0.2, bioHub, species = "Human (Homo sapiens)", calculateFdr = TRUE, fdrCutoff = 0.05, zscoreCutoff = 1.0, penalty = 0.1, isoformFactor = TRUE,  contextDecorators = c(), removeNodeDecorators = c(), outputTable, wait = TRUE, verbose = TRUE) {
+	gx.getConnection()
+    gx.imp <- gx.getInternals()
+	jobID  <- gx.imp$next.job.id();
+	lis = "false"
+	if (limitInputSize) {
+		lis = "true"
+	}
+	fdr = "true"
+	if (!calculateFdr) {
+		fdr = "false"
+	}
+	iso = "true"
+	if (!isoformFactor) {
+		iso = "false"
+	}
+	decorators <- c()
+	for (cd in contextDecorators) {
+		decorators <- c(decorators, paste0("[{\"name\":\"decoratorName\",\"value\":\"Apply Context\"},",
+									"{\"name\":\"parameters\", \"value\":[",
+									"{\"name\":\"tableName\", \"value\": \"",cd$table,"\"},",
+									"{\"name\":\"tableColumn\", \"value\": \"",cd$column,"\"},",
+									"{\"name\":\"decayFactor\", \"value\": ",cd$decay,"}",
+									"]}]"))
+	}
+	for (rn in removeNodeDecorators) {
+		decorators <- c(decorators, paste0("[{\"name\":\"decoratorName\",\"value\":\"Remove nodes\"},",
+									"{\"name\":\"parameters\", \"value\":[",
+									"{\"name\":\"inputTable\", \"value\": \"",rn,"\"}",
+									"]}]"))
+	}
+	json   <- paste0("[",
+						"{\"name\":\"sourcePath\", \"value\": \"",sourcePath,"\"},",
+						"{\"name\":\"weightColumn\", \"value\": \"",weightColumn,"\"},",
+						"{\"name\":\"isInputSizeLimited\", \"value\": ",lis,"},",
+						"{\"name\":\"inputSizeLimit\", \"value\": ",inputSizeLimit,"},",
+						"{\"name\":\"maxRadius\", \"value\": ",maxRadius,"},",
+						"{\"name\":\"scoreCutoff\", \"value\": ",scoreCutoff,"},",
+						"{\"name\":\"bioHub\", \"value\": \"",bioHub,"\"},",
+						"{\"name\":\"species\", \"value\": \"",species,"\"},",
+						"{\"name\":\"calculatingFDR\", \"value\": ",fdr,"},",
+						"{\"name\":\"FDRcutoff\", \"value\": ",fdrCutoff,"},",
+						"{\"name\":\"ZScoreCutoff\", \"value\": ",zscoreCutoff,"},",
+						"{\"name\":\"penalty\", \"value\": ",penalty,"},",
+						"{\"name\":\"decorators\", \"value\": [",paste(decorators, sep='', collapse=','),"]},",
+						"{\"name\":\"isoformFactor\", \"value\": ",isoformFactor,"},",
+						"{\"name\":\"outputTable\", \"value\": \"",outputTable,"\"}",
+					 "]"
+	)
+	params <- list(de    = "analyses/Methods/Molecular networks/Regulator search",
+				   jobID = jobID,
+				   json  = json,
+				   showMode = 1
+			  )
+	resp <- gx.imp$biouml.query("/web/analysis", params=params)
+	if (wait) gx.job.wait(jobID, verbose)
+	resp
+}
+
+#' Import a BED file
+#'
+#' Imports a BED file to specified data item
+#'
+#' @param bedFile  BED file to import
+#' @param destPath Platform path of resulting track item
+#' @param genomeDb Genome database
+#' @param genomeId Genome id string, e.g. mm10, hg38
+#' @param wait        True to wait for job to complete
+#' @param verbose     True for more progress info
+#' @return a string containing the status of the request in JSON format
+#' @export
+gx.importBedFile <- function(bedFile, destPath, genomeDb = "Ensembl 91.38 Human (hg38)", genomeId = "hg38", wait=T, verbose=T) {
+	gx.getConnection()
+    gx.imp <- gx.getInternals()
+	fileID <- gx.imp$next.job.id();
+    jobID <- gx.imp$next.job.id();
+    params <- list(fileID=fileID, file=fileUpload(bedFile))
+    gx.imp$biouml.query("/web/upload", params=params)
+	json <- paste0("[\n {\"name\": \"file\",\n\"value\": \"",fileID,"\"},\n",
+				   "{\"name\": \"resultPath\",\n\"value\": \"",destPath,"\"},",
+				   "{\"name\": \"properties\",\n \"value\":[{\"name\":\"dbSelector\",\"value\":\"",genomeDb,"\"},",
+				   "{\"name\":\"genomeId\",\"value\":\"",genomeId,"\"}]}]")
+	params <- list(de = "analyses/Methods/Import/BED format (*.bed)",
+				   jobID    = jobID,
+				   json     = json,
+				   showMode = 0
+			  )
+	resp <- gx.imp$biouml.query("/web/analysis", params=params)
+	if (wait) gx.job.wait(jobID, verbose)
+	resp
+}
+
+#' Track to gene set
+#'
+#' Maps one or more tracks to genes of the most recent Ensembl release
+#'
+#' @param tracks      List of track paths
+#' @param species     Name of the species
+#' @param from        Gene region start relative to 5' end of Ensembl gene
+#' @param to          Gene region end relative to 3' end of Ensembl gene
+#' @param resultTypes List of statistics to report (Schematic, + or -, Count, Count in exons, Count in introns, Count in 5', Count in 3', Structure, Positions)
+#' @param allGenes    True if all genes shall be reported regardless of hit
+#' @param destPath    output path
+#' @param wait        True to wait for job to complete
+#' @param verbose     True for more progress info
+#' @return a string containing the status of the request in JSON format
+#' @export
+gx.trackToGeneSet <- function(tracks, species, from, to, resultTypes=c("Count"), allGenes=F, destPath, wait=T, verbose=T) {
+	gx.imp <- gx.getInternals()
+	jobID  <- gx.imp$next.job.id()
+	ag = "false"
+	if (allGenes) {
+		ag = "true"
+	}
+	json = paste0("[{\"name\":\"sourcePaths\",\"value\":[\"",paste(tracks,collapse='","'),"\"]}",
+				  ",{\"name\":\"species\",\"value\":\"",species,"\"}",
+			      ",{\"name\":\"from\",\"value\":\"",from,"\"}",
+			      ",{\"name\":\"to\",\"value\":\"",to,"\"}",
+			      ",{\"name\":\"resultTypes\",\"value\":[\"",paste(resultTypes,collapse='","'),"\"]}",
+				  ",{\"name\":\"allGenes\",\"value\":",ag,"},{\"name\":\"destPath\",\"value\":\"",destPath,"\"}]")
+	params <- list(de    = "analyses/Methods/Data+manipulation/Track to gene set",
+				   jobID = jobID,
+				   showMode = 1,
+				   json = json)
+	resp   <- gx.imp$biouml.query("/web/analysis", params=params)
+	if (wait) gx.job.wait(jobID, verbose)
+	resp
+}
+
+
 #' Create a new project
 #'
 #' This function creates a new project within the platform workspace.
@@ -71,6 +225,8 @@ gx.delete <- function(folder, name) {
     gx.imp <- gx.getInternals()
     gx.imp$queryJSON("/web/data", params)
 }
+
+
 
 #' Import a table from a text file
 #'

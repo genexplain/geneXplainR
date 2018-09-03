@@ -10,6 +10,8 @@
 library(geneXplainR)
 library(RJSONIO)
 
+context('CoreLibrary')
+
 test.server <- "https://test.server"
 test.user   <- "test.user"
 test.passwd <- "test.password"
@@ -417,6 +419,23 @@ test_that("gx.isElement",{
 test_that("gx.importTable",{
               before.test.connection()
               res <- gx.importTable("test_input_file.txt", "test.folder", "test.table.name", TRUE, "Tab", tableType="Genes: Ensembl", species="Homo sapiens")
-              print(res)
+              clean.after.test()
+})
+
+test_that("gx.trackToGeneSet",{
+              before.test.connection()
+              res <- gx.trackToGeneSet(tracks = "test_tracks", species = "Homo sapiens", from = -1000, to = 100, resultTypes=c("Count"), allGenes=F, destPath = "test_output", wait=F, verbose=F)
+              clean.after.test()
+})
+
+test_that("gx.importBedFile",{
+              before.test.connection()
+              res <- gx.importBedFile("test_input_file.txt", "test_track", wait=F, verbose=F)
+              clean.after.test()
+})
+
+test_that("gx.searchRegulators",{
+              before.test.connection()
+              res <- gx.searchRegulators("test_input", "test_weights", bioHub = "test_hub", outputTable = "test_output", wait=F, verbose=F)
               clean.after.test()
 })
