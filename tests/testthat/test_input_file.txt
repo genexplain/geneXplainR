@@ -1,8 +1,0 @@
-Gene	Value
-TP53	1
-ETS1	2
-OCT4	3
-SOX2	4
-JUN 5
-FOS 6
-FOXO4	7
