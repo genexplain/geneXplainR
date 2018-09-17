@@ -5,4 +5,4 @@
 
 # ECCB 2018 tutorial performing a drug discovery worflow using geneXplainR
 
-In this branch we are happy to provide you with the material (data, slides, scripts) used in our tutorial given at the [ECCB 2018](https://eccb2018.org) in Athens, Greece. We thank all all participants and hope they enjoyed the session.
+In this branch we are happy to provide you with the material (data, slides, scripts) used in our tutorial given at the [ECCB 2018](https://eccb2018.org) in Athens, Greece. We thank all all participants and hope they enjoyed the session. [Here](https://eccb2018.org/tutorial-3) you can find the tutorial information on the conference webpage. Updated info is contained in the subfolder *schedule*.
