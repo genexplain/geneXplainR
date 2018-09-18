@@ -49,7 +49,6 @@ svobj <- sva(vm$E, design, sva.null)
 cor.mat <- removeBatchEffect(vm$E, covariates = svobj$sv[,1:svobj$n.sv])
 # Limma workflow using the matrix obtained from SVA
 fit <- lmFit(cor.mat, design)
-fit <- lmFit(vm, design)
 # Prepares a plot of first two principal components to visualize distribution of different factors
 pcs <- prcomp(t(as.matrix(cor.mat)))
 targets$PC1 <- pcs$x[,1]
