@@ -66,8 +66,9 @@ fctable <- subset(fctable, Number.of.hits >= minHits &
                   Adjusted.P.value <= maxAdjPval)
 gx.createFolder(geneSetPath, geneSetFolder)
 for (r in 1:nrow(fctable)) {
-    genes <- gsub("]","",gsub("[","",strsplit(as.character(fctable$Hits[r]), ",", fixed=T)[[1]], fixed=T),fixed=T)
-    name  <- gsub("\\W+","_",as.character(fctable$Title[r]))
+    genes  <- gsub("]","",gsub("[","",strsplit(as.character(fctable$Hits[r]), ",", fixed=T)[[1]], fixed=T),fixed=T)
+    gsName <- paste0(as.character(fctable$ID[r]),"_",as.character(fctable$Title[r]))
+    name   <- gsub("\\W+","_",substring(gsName, 1, min(nchar(gsName),80)))
     print(name)
     write.table(data.frame(Gene=gsub("\"","",genes,fixed=T)), file=paste0(name,"_gene_set.txt"), quote=F, row.names=F, sep="\t")
     gx.import(paste0(name,"_gene_set.txt"),

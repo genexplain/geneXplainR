@@ -58,7 +58,8 @@ if (profile == "") {
 }
 fromTss       <- getParameter(as.numeric(as.character(params['from',1])), -1000)
 toTss         <- getParameter(as.numeric(as.character(params['to',1])), 100)
-outputFolder  <- getParameter(as.character(params['outputFolder',1]), folder)
+outputPath    <- getParameter(as.character(params['outputPath',1]), folder)
+outputName    <- getParameter(as.character(params['outputName',1]), "tfbs_analysis")
 doSample      <- getParameter(as.logical(as.character(params['doSample',1])), "false")
 sampleNum     <- getParameter(as.numeric(as.character(params['sampleNum',1])), 5)
 sampleSize    <- getParameter(as.numeric(as.character(params['sampleSize',1])), 1000)
@@ -69,27 +70,27 @@ seqFdrCutoff  <- getParameter(as.numeric(as.character(params['seqFdrCutoff',1]))
 des    <- grep(regex, gx.ls(folder), perl=T, value=T)
 minYesSize <- 10
 maxYesSize <- 1000
+gx.createFolder(outputPath, outputName)
+outputFolder <- paste0(outputPath,"/",outputName)
 sapply(des, function(x) {
            dt <- gx.get(paste0(folder, "/", x))
            if (nrow(dt) >= minYesSize & nrow(dt) <= maxYesSize) {
                print(dt)
-               gx.analysis("Search for enriched TFBSs (genes)",
-                           list(
-                                yesSetPath  = paste0(folder,"/",x),
-                                noSetPath   = noSet,
-                                profilePath = profile,
-                                species     = species,
-                                from        = fromTss,
-                                to          = toTss,
-                                doSample      = doSample,
-                                sampleNum     = sampleNum,
-                                sampleSize    = sampleSize,
-                                siteFeCutoff  = siteFeCutoff,
-                                siteFdrCutoff = siteFdrCutoff,
-                                seqFeCutoff   = seqFeCutoff,
-                                seqFdrCutoff  = seqFdrCutoff,
-                                output   = paste0(outputFolder,"/",x,"_Enriched_motifs")
-                                ), verbose=F)
-             }
-         }
-)
+               gx.analysis("Search for enriched TFBSs (genes)", list(
+                                                                     yesSetPath  = paste0(folder,"/",x),
+                                                                     noSetPath   = noSet,
+                                                                     profilePath = profile,
+                                                                     species     = species,
+                                                                     from        = fromTss,
+                                                                     to          = toTss,
+                                                                     doSample      = doSample,
+                                                                     sampleNum     = sampleNum,
+                                                                     sampleSize    = sampleSize,
+                                                                     siteFeCutoff  = siteFeCutoff,
+                                                                     siteFdrCutoff = siteFdrCutoff,
+                                                                     seqFeCutoff   = seqFeCutoff,
+                                                                     seqFdrCutoff  = seqFdrCutoff,
+                                                                     output   = paste0(outputFolder,"/",x,"_Enriched_motifs")
+                                                                     ), verbose=F)
+           }
+         })
