@@ -24,7 +24,7 @@
 ## ----eval=FALSE----------------------------------------------------------
 #  #... after login
 #  # Get list of workflows in 'Common'
-#  gx.ls("data/Workflows/Common")
+#  gx.ls("analyses/Workflows/Common")
 #  
 #  # Get parameters for specific workflow
 #  gx.ls("analyses/Workflows/Common/Gene set enrichment analysis (Gene table)")
