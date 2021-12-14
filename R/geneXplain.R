@@ -11,7 +11,7 @@
 
 
 gx.getInternals <- function() {
-    .internals <- c("biouml.query", "queryJSON", "next.job.id")
+    .internals <- c("biouml.query", "queryJSON", "next.job.id", "biouml.parameters")
     gx.imp <- structure(mapply(function(.internals,i) getFromNamespace(i,"rbiouml"),.internals,.internals),class=c("internal"))
     gx.imp
 }
@@ -362,7 +362,10 @@ gx.analysis.list <- function() {
 #' @export
 gx.analysis.parameters <- function(analysisName) {
     gx.getConnection()
-    rbiouml::biouml.analysis.parameters(analysisName)
+    gx.imp <- gx.getInternals()
+    gx.imp$biouml.parameters("/web/bean/get", 
+                             params = c(de = paste0("properties/method/parameters/", analysisName),
+                             showMode = 1))
 }
 
 #' Executes workflow with specified parameters
