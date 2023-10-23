@@ -218,6 +218,14 @@ gx.createFolder <- function(path, folderName) {
 #' @export
 gx.delete <- function(folder, name) {
     gx.getConnection()
+    folder <- sub("[\\/\\s]+$", "", folder, perl = TRUE)
+    fld <- strsplit(folder, "/", fixed = TRUE)
+    if (!(fld[[1]][1] == "data")) {
+        stop("Element must be located in the data branch.")
+    }
+    if (length(fld[[1]]) == 3 & (name == "Data" | name == "Journal" | name == "tmp")) {
+        stop(paste0("Cannot delete element ", name, " in ", folder))
+    }
     params <- list("service" = "access.service",
                    "command" = "26",
                    "dc" = folder,
