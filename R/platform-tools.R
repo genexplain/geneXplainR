@@ -277,7 +277,7 @@ gx.upstreamAnalysisTransfacGeneWays <- function(inputYesSet,inputNoSet,profile,s
 #' @keywords workflow, upstream analysis, TRANSFAC, TRANSPATH
 #' @export
 gx.upstreamAnalysisTransfacTranspath <- function(inputYesSet,inputNoSet,profile,species="Human (Homo sapiens)",promoterStart=-1000,promoterEnd=100,resultFolder,skipCompleted=T,wait=T,verbose=F) {
-    gx.workflow("analyses/Workflows/TRANSPATH/Upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
+    gx.workflow("analyses/Workflows/TRANSFAC and TRANSPATH/Upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
                 list("Input Yes gene set"             = inputYesSet,
                      "Input No gene set"              = inputNoSet,
                      "Profile"                        = profile,
@@ -342,7 +342,7 @@ gx.focusedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Ho
 #' @keywords workflow, upstream analysis, TRANSFAC, GeneWays
 #' @export
 gx.enrichedUpstreamAnalysis <- function(inputYesSet,inputNoSet,species="Human (Homo sapiens)",profile,foldEnriched=1.0,promoterStart=-1000,promoterEnd=100,resultFolder,allowBigInput=F,skipCompleted=T,wait=T,verbose=F) {
-    gx.workflow("analyses/Workflows/TRANSPATH/Enriched upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
+    gx.workflow("analyses/Workflows/TRANSFAC and TRANSPATH/Enriched upstream analysis (TRANSFAC(R) and TRANSPATH(R))",
                 list("Input Yes gene set"             = inputYesSet,
                      "Input No gene set"              = inputNoSet,
                      "Profile"                        = profile,
